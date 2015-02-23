@@ -1,5 +1,10 @@
 package com.wordpress.tonytam.chefsmenu.dummy;
 
+import android.content.Context;
+import android.content.res.Resources;
+
+import com.wordpress.tonytam.chefsmenu.R;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -26,9 +31,9 @@ public class MenuContent {
     static {
         // TODO: Get this from a JSON data store locally that is refreshed
         // offline
-        addItem(new MenuItem("1", "Dinner Menu"));
-        addItem(new MenuItem("2", "Drink Menu"));
-        addItem(new MenuItem("3", "Dessert Menu"));
+        addItem(new MenuItem("1", "Dinner Menu",  R.drawable.nav_food_menu));
+        addItem(new MenuItem("2", "Drink Menu",  R.drawable.nav_drink_menu));
+        addItem(new MenuItem("3", "Dessert Menu",  R.drawable.nav_drink_menu));
     }
 
     private static void addItem(MenuItem item) {
@@ -42,10 +47,12 @@ public class MenuContent {
     public static class MenuItem {
         public String id;
         public String content;
+        public int imageResource;
 
-        public MenuItem(String id, String content) {
+        public MenuItem(String id, String content, int imageResource) {
             this.id = id;
             this.content = content;
+            this.imageResource = imageResource;
         }
 
         @Override
