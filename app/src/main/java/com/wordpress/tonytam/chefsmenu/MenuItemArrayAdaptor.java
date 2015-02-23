@@ -33,8 +33,12 @@ public class MenuItemArrayAdaptor extends ArrayAdapter<MenuContent.MenuItem> {
         View rowView = inflater.inflate(R.layout.main_menu_navigation, parent, false);
         TextView textView = (TextView) rowView.findViewById(R.id.menu_id);
         textView.setText(values.get(position).toString());
-        // Change the icon for Windows and iPhone
+
+        //
         String s = values.get(position).toString();
+
+        ImageView imageView = (ImageView) rowView.findViewById(R.id.menu_image);
+        imageView.setImageResource(values.get(position).getImageResource());
 
         return rowView;
     }

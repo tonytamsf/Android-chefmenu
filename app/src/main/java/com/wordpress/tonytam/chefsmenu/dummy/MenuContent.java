@@ -33,7 +33,7 @@ public class MenuContent {
         // offline
         addItem(new MenuItem("1", "Dinner Menu",  R.drawable.nav_food_menu));
         addItem(new MenuItem("2", "Drink Menu",  R.drawable.nav_drink_menu));
-        addItem(new MenuItem("3", "Dessert Menu",  R.drawable.nav_drink_menu));
+        addItem(new MenuItem("3", "Dessert Menu",  R.drawable.nav_dessert_menu));
     }
 
     private static void addItem(MenuItem item) {
@@ -42,7 +42,10 @@ public class MenuContent {
     }
 
     /**
-     * A dummy item representing a piece of content.
+     * A menu item has text and an image
+     *
+     * toString() - returns the text
+     * getImageResource() - returns the resource id of the image
      */
     public static class MenuItem {
         public String id;
@@ -59,5 +62,7 @@ public class MenuContent {
         public String toString() {
             return content;
         }
+
+        public int getImageResource() { return imageResource; }
     }
 }
