@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Chef\'s Menu</string>
+    <string name="title_menuitem_detail">MenuItem Detail</string>
+</resources>
