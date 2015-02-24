@@ -31,9 +31,17 @@ public class MenuContent {
     static {
         // TODO: Get this from a JSON data store locally that is refreshed
         // offline
-        addItem(new MenuItem("1", "Dinner Menu",  R.drawable.nav_food_menu));
-        addItem(new MenuItem("2", "Drink Menu",  R.drawable.nav_drink_menu));
-        addItem(new MenuItem("3", "Dessert Menu",  R.drawable.nav_dessert_menu));
+        addItem(new MenuItem("1", "Signature",  R.drawable.nav_food_menu));
+        addItem(new MenuItem("2", "Beyond Sashimi",  R.drawable.nav_drink_menu));
+        addItem(new MenuItem("3", "Well Done Signature",  R.drawable.nav_dessert_menu));
+        addItem(new MenuItem("4", "Designer Rolls",  R.drawable.nav_dessert_menu));
+        addItem(new MenuItem("5", "Well Done Rolls",  R.drawable.nav_dessert_menu));
+        addItem(new MenuItem("6", "Small Plates",  R.drawable.nav_dessert_menu));
+        addItem(new MenuItem("7", "Bento Box Lunch",  R.drawable.nav_dessert_menu));
+        addItem(new MenuItem("8", "Beyond Bento Box",  R.drawable.nav_dessert_menu));
+        addItem(new MenuItem("9", "Classic Sushi",  R.drawable.nav_dessert_menu));
+        addItem(new MenuItem("10", "Vegetarian",  R.drawable.nav_dessert_menu));
+        addItem(new MenuItem("11", "Gluten Free",  R.drawable.nav_dessert_menu));
     }
 
     private static void addItem(MenuItem item) {

@@ -30,6 +30,7 @@ public class MenuItemDetailFragment extends Fragment {
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
+     * *
      * fragment (e.g. upon screen orientation changes).
      */
     public MenuItemDetailFragment() {
@@ -54,9 +55,21 @@ public class MenuItemDetailFragment extends Fragment {
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.menuitem_detail)).setText(mItem.content);
+            // TODO: ((TextView) rootView.findViewById(R.id.menuitem_detail)).setText(mItem.content);
         }
 
         return rootView;
     }
 }
+
+/*
+
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/menuitem_detail"
+    style="?android:attr/textAppearanceLarge" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:padding="16dp" android:textIsSelectable="true"
+    tools:context=".MenuItemDetailFragment" />
+
+
+ */

@@ -1,5 +1,414 @@
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/menuitem_detail"
-    style="?android:attr/textAppearanceLarge" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:padding="16dp" android:textIsSelectable="true"
-    tools:context=".MenuItemDetailFragment" />
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/menuitem_detail_container"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    tools:context=".MenuItemDetailActivity" tools:ignore="MergeRootFrame" >
+
+    <TabHost
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/tabHost">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:showDividers="beginning|middle|end"
+                android:layout_gravity="top"
+                android:visibility="visible"></TabWidget>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <LinearLayout
+                    android:id="@+id/Filter"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical"
+                    android:visibility="invisible"
+                    android:layout_gravity="bottom">
+
+                    <ScrollView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/scrollView2"
+                        android:clickable="true"
+                        android:longClickable="true" >
+
+                        <TableLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_gravity="center_horizontal|top"
+                            android:orientation="horizontal"
+                            android:id="@+id/tableLayout2"
+                            android:padding="2dp"
+                            android:showDividers="beginning|middle|end" >
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="2dp" >
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/imageView2"
+                                    android:src="@drawable/nav_dessert_menu" />
+
+                                <TextView
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="Medium Text"
+                                    android:id="@+id/textView"
+                                    android:textColor="@color/primary_text_default_material_light" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:padding="2dp" >
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/imageView5"
+                                    android:src="@drawable/nav_dessert_menu" />
+
+                                <TextView
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="Medium Text"
+                                    android:id="@+id/textView2"
+                                    android:textColor="@color/primary_text_default_material_light" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:padding="2dp" >
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/imageView7"
+                                    android:src="@drawable/nav_dessert_menu" />
+
+                                <TextView
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="Medium Text"
+                                    android:id="@+id/textView3"
+                                    android:textColor="@color/primary_text_default_material_light" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:padding="2dp" >
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/imageView9"
+                                    android:src="@drawable/nav_dessert_menu" />
+
+                                <TextView
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="Medium Text"
+                                    android:id="@+id/textView4"
+                                    android:textColor="@color/primary_text_default_material_light" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:padding="2dp" >
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/imageView11"
+                                    android:src="@drawable/nav_dessert_menu" />
+
+                                <TextView
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="Medium Text"
+                                    android:id="@+id/textView5"
+                                    android:textColor="@color/primary_text_default_material_light" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:padding="2dp" >
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/imageView13"
+                                    android:src="@drawable/nav_dessert_menu" />
+
+                                <TextView
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="Medium Text"
+                                    android:id="@+id/textView6"
+                                    android:textColor="@color/primary_text_default_material_light" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:padding="2dp" >
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/imageView15"
+                                    android:src="@drawable/nav_dessert_menu" />
+
+                                <TextView
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="Medium Text"
+                                    android:id="@+id/textView7"
+                                    android:textColor="@color/primary_text_default_material_light" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:padding="2dp" >
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/imageView16"
+                                    android:src="@drawable/nav_dessert_menu" />
+
+                                <TextView
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="Medium Text"
+                                    android:id="@+id/textView8"
+                                    android:textColor="@color/primary_text_default_material_light" />
+                            </TableRow>
+                        </TableLayout>
+                    </ScrollView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Items"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
+
+                    <ScrollView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/scrollView"
+                        android:clickable="true"
+                        android:longClickable="true">
+
+                        <TableLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_gravity="center_horizontal|top"
+                            android:orientation="horizontal"
+                            android:id="@+id/tableLayout"
+                            android:padding="2dp"
+                            android:showDividers="beginning|middle|end">
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="2dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/imageView10"
+                                    android:src="@drawable/nav_dessert_menu" />
+
+                                <TextView
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="Medium Text"
+                                    android:id="@+id/menu_id1"
+                                    android:textColor="@color/primary_text_default_material_light" />
+
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:padding="2dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/imageView14"
+                                    android:src="@drawable/nav_dessert_menu" />
+
+                                <TextView
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="Medium Text"
+                                    android:id="@+id/menu_id2"
+                                    android:textColor="@color/primary_text_default_material_light" />
+
+
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:padding="2dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/imageView8"
+                                    android:src="@drawable/nav_dessert_menu" />
+
+                                <TextView
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="Medium Text"
+                                    android:id="@+id/menu_id3"
+                                    android:textColor="@color/primary_text_default_material_light" />
+
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:padding="2dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/imageView4"
+                                    android:src="@drawable/nav_dessert_menu" />
+
+                                <TextView
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="Medium Text"
+                                    android:id="@+id/menu_id32"
+                                    android:textColor="@color/primary_text_default_material_light" />
+
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:padding="2dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/imageView6"
+                                    android:src="@drawable/nav_dessert_menu" />
+
+                                <TextView
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="Medium Text"
+                                    android:id="@+id/menu_id4"
+                                    android:textColor="@color/primary_text_default_material_light" />
+
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:padding="2dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/imageView3"
+                                    android:src="@drawable/nav_dessert_menu" />
+
+                                <TextView
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="Medium Text"
+                                    android:id="@+id/menu_id5"
+                                    android:textColor="@color/primary_text_default_material_light" />
+
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:padding="2dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/imageView"
+                                    android:src="@drawable/nav_dessert_menu" />
+
+                                <TextView
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="Medium Text"
+                                    android:id="@+id/menu_id6"
+                                    android:textColor="@color/primary_text_default_material_light" />
+
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:padding="2dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/imageView12"
+                                    android:src="@drawable/nav_dessert_menu" />
+
+                                <TextView
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="Medium Text"
+                                    android:id="@+id/menu_id7"
+                                    android:textColor="@color/primary_text_default_material_light" />
+
+                            </TableRow>
+                        </TableLayout>
+                    </ScrollView>
+                </LinearLayout>
+
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+</FrameLayout>

@@ -2,32 +2,32 @@
 <items version="2" >
 
     <item
-        jar="/Users/tonytam/Dropbox/git/Android-chefmenu/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="/Users/tonytam/Dropbox/git/Android-chefmenu/app/build/intermediates/pre-dexed/debug/classes-18c4a60229b54d4e92fa5eb89ccee3b643245408.jar" />
-    </item>
-    <item
         jar="/Users/tonytam/Dropbox/git/Android-chefmenu/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="/Users/tonytam/Dropbox/git/Android-chefmenu/app/build/intermediates/pre-dexed/debug/classes-a23ba57c6412c9dcea1d0cc1d2c8a768f0f40fe6.jar" />
+        <dex dex="/Users/tonytam/Dropbox/git/Android-chefmenu/app/build/intermediates/pre-dexed/release/classes-a23ba57c6412c9dcea1d0cc1d2c8a768f0f40fe6.jar" />
     </item>
     <item
         jar="/Users/tonytam/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="/Users/tonytam/Dropbox/git/Android-chefmenu/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-9b62d042a0e7dc807ee8ce635bff269eb00866fb.jar" />
+        <dex dex="/Users/tonytam/Dropbox/git/Android-chefmenu/app/build/intermediates/pre-dexed/release/support-annotations-21.0.3-9b62d042a0e7dc807ee8ce635bff269eb00866fb.jar" />
+    </item>
+    <item
+        jar="/Users/tonytam/Dropbox/git/Android-chefmenu/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="/Users/tonytam/Dropbox/git/Android-chefmenu/app/build/intermediates/pre-dexed/release/classes-18c4a60229b54d4e92fa5eb89ccee3b643245408.jar" />
     </item>
     <item
         jar="/Users/tonytam/Dropbox/git/Android-chefmenu/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="/Users/tonytam/Dropbox/git/Android-chefmenu/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-4308e29c4dd1b834543d8c0308eedb2e32e912a0.jar" />
+        <dex dex="/Users/tonytam/Dropbox/git/Android-chefmenu/app/build/intermediates/pre-dexed/release/internal_impl-21.0.3-4308e29c4dd1b834543d8c0308eedb2e32e912a0.jar" />
     </item>
 
 </items>
