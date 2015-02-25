@@ -24,6 +24,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MenuItemListActivity" />
         </activity>
+        <activity
+            android:name=".MenuFoodItemListActivity"
+            android:label="@string/title_menufooditem_list" >
+        </activity>
+        <activity
+            android:name=".MenuFoodItemDetailActivity"
+            android:label="@string/title_menufooditem_detail"
+            android:parentActivityName=".MenuFoodItemListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.wordpress.tonytam.chefsmenu.MenuFoodItemListActivity" />
+        </activity>
     </application>
 
 </manifest>

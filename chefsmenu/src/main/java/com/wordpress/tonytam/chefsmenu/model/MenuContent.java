@@ -1,7 +1,4 @@
-package com.wordpress.tonytam.chefsmenu.dummy;
-
-import android.content.Context;
-import android.content.res.Resources;
+package com.wordpress.tonytam.chefsmenu.model;
 
 import com.wordpress.tonytam.chefsmenu.R;
 
@@ -19,12 +16,12 @@ import java.util.Map;
 public class MenuContent {
 
     /**
-     * An array of sample (dummy) items.
+     * An array of sample (model) items.
      */
     public static List<MenuItem> ITEMS = new ArrayList<MenuItem>();
 
     /**
-     * A map of sample (dummy) items, by ID.
+     * A map of sample (model) items, by ID.
      */
     public static Map<String, MenuItem> ITEM_MAP = new HashMap<String, MenuItem>();
 

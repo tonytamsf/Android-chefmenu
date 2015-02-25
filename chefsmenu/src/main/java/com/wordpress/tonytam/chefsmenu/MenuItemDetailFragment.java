@@ -5,10 +5,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 
-import com.wordpress.tonytam.chefsmenu.dummy.MenuContent;
+import com.wordpress.tonytam.chefsmenu.model.MenuContent;
 
 /**
  * A fragment representing a single MenuItem detail screen.
@@ -24,7 +23,7 @@ public class MenuItemDetailFragment extends Fragment {
     public static final String ARG_ITEM_ID = "item_id";
 
     /**
-     * The dummy content this fragment is presenting.
+     * The model content this fragment is presenting.
      */
     private MenuContent.MenuItem mItem;
 
@@ -41,7 +40,7 @@ public class MenuItemDetailFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments().containsKey(ARG_ITEM_ID)) {
-            // Load the dummy content specified by the fragment
+            // Load the model content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
             mItem = MenuContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
@@ -53,7 +52,7 @@ public class MenuItemDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_menuitem_detail, container, false);
 
-        // Show the dummy content as text in a TextView.
+        // Show the model content as text in a TextView.
         if (mItem != null) {
             // TODO: ((TextView) rootView.findViewById(R.id.menuitem_detail)).setText(mItem.content);
         }

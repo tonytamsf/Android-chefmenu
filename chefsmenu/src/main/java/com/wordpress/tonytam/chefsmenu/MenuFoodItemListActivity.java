@@ -6,23 +6,23 @@ import android.support.v4.app.FragmentActivity;
 
 
 /**
- * An activity representing a list of MenuItems. This activity
+ * An activity representing a list of MenuFoodItems. This activity
  * has different presentations for handset and tablet-size devices. On
  * handsets, the activity presents a list of items, which when touched,
- * lead to a {@link MenuItemDetailActivity} representing
+ * lead to a {@link MenuFoodItemDetailActivity} representing
  * item details. On tablets, the activity presents the list of items and
  * item details side-by-side using two vertical panes.
  * <p/>
  * The activity makes heavy use of fragments. The list of items is a
- * {@link MenuItemListFragment} and the item details
- * (if present) is a {@link MenuItemDetailFragment}.
+ * {@link MenuFoodItemListFragment} and the item details
+ * (if present) is a {@link MenuFoodItemDetailFragment}.
  * <p/>
  * This activity also implements the required
- * {@link MenuItemListFragment.Callbacks} interface
+ * {@link MenuFoodItemListFragment.Callbacks} interface
  * to listen for item selections.
  */
-public class MenuItemListActivity extends FragmentActivity
-        implements MenuItemListFragment.Callbacks {
+public class MenuFoodItemListActivity extends FragmentActivity
+        implements MenuFoodItemListFragment.Callbacks {
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -33,9 +33,9 @@ public class MenuItemListActivity extends FragmentActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menuitem_list);
+        setContentView(R.layout.activity_menufooditem_list);
 
-        if (findViewById(R.id.menuitem_detail_container) != null) {
+        if (findViewById(R.id.menufooditem_detail_container) != null) {
             // The detail container view will be present only in the
             // large-screen layouts (res/values-large and
             // res/values-sw600dp). If this view is present, then the
@@ -44,8 +44,8 @@ public class MenuItemListActivity extends FragmentActivity
 
             // In two-pane mode, list items should be given the
             // 'activated' state when touched.
-            ((MenuItemListFragment) getSupportFragmentManager()
-                    .findFragmentById(R.id.menuitem_list))
+            ((MenuFoodItemListFragment) getSupportFragmentManager()
+                    .findFragmentById(R.id.menufooditem_list))
                     .setActivateOnItemClick(true);
         }
 
@@ -53,7 +53,7 @@ public class MenuItemListActivity extends FragmentActivity
     }
 
     /**
-     * Callback method from {@link MenuItemListFragment.Callbacks}
+     * Callback method from {@link MenuFoodItemListFragment.Callbacks}
      * indicating that the item with the given ID was selected.
      */
     @Override
@@ -63,8 +63,8 @@ public class MenuItemListActivity extends FragmentActivity
             // adding or replacing the detail fragment using a
             // fragment transaction.
             Bundle arguments = new Bundle();
-            arguments.putString(MenuItemDetailFragment.ARG_ITEM_ID, id);
-            MenuItemDetailFragment fragment = new MenuItemDetailFragment();
+            arguments.putString(MenuFoodItemDetailFragment.ARG_ITEM_ID, id);
+            MenuFoodItemDetailFragment fragment = new MenuFoodItemDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.menufooditem_detail_container, fragment)
@@ -73,8 +73,8 @@ public class MenuItemListActivity extends FragmentActivity
         } else {
             // In single-pane mode, simply start the detail activity
             // for the selected item ID.
-            Intent detailIntent = new Intent(this, MenuFoodItemListActivity.class);
-            detailIntent.putExtra(MenuItemDetailFragment.ARG_ITEM_ID, id);
+            Intent detailIntent = new Intent(this, MenuFoodItemDetailActivity.class);
+            detailIntent.putExtra(MenuFoodItemDetailFragment.ARG_ITEM_ID, id);
             startActivity(detailIntent);
         }
     }

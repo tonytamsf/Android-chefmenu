@@ -8,8 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.wordpress.tonytam.chefsmenu.R;
-import com.wordpress.tonytam.chefsmenu.dummy.MenuContent;
+import com.wordpress.tonytam.chefsmenu.model.MenuContent;
 
 import java.util.List;
 
