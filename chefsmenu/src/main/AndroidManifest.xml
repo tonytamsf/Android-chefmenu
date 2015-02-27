@@ -8,8 +8,8 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MenuItemListActivity"
-            android:label="@string/app_name" >
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,24 +17,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MenuItemDetailActivity"
-            android:label="@string/title_menuitem_detail"
-            android:parentActivityName=".MenuItemListActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MenuItemListActivity" />
+            android:name=".MenuListActivity"
+            android:label="@string/title_menu_list" >
         </activity>
         <activity
-            android:name=".MenuFoodItemListActivity"
-            android:label="@string/title_menufooditem_list" >
-        </activity>
-        <activity
-            android:name=".MenuFoodItemDetailActivity"
-            android:label="@string/title_menufooditem_detail"
-            android:parentActivityName=".MenuFoodItemListActivity" >
+            android:name=".MenuDetailActivity"
+            android:label="@string/title_menu_detail"
+            android:parentActivityName=".MenuListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.wordpress.tonytam.chefsmenu.MenuFoodItemListActivity" />
+                android:value="com.wordpress.tonytam.chefsmenu.MenuListActivity" />
         </activity>
     </application>
 

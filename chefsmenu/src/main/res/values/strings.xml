@@ -3,4 +3,24 @@
     <string name="title_menuitem_detail">Menu Detail</string>
     <string name="title_menufooditem_list">MenuFoodItems</string>
     <string name="title_menufooditem_detail">MenuFoodItem Detail</string>
+    <string name="title_activity_menu">MenuActivity</string>
+
+
+    <string name="title_section1">Food Menu</string>
+    <string name="title_section2">Drink Menu</string>
+    <string name="title_section3">Dessert Menu</string>
+
+    <string name="hello_world">Hello world!</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_submenu_list">SubMenus</string>
+    <string name="title_submenu_detail">SubMenu Detail</string>
+    <string name="title_activity_main">Chef\'s Menu</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+    <string name="title_menu_list">MenuItems</string>
+    <string name="title_menu_detail">Menu Detail</string>
 </resources>

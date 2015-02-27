@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navigationModel
+  ns = "http://schemas.android.com?import=com.android.tools.idea.editors.navigation.model.*">
+  <locations  
+    class = "java.util.ArrayList">
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.wordpress.tonytam.chefsmenu.SubMenuDetailActivity"/>
+      <point      
+        x = "486"      
+        y = "2749"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.MenuState"      
+        className = "com.wordpress.tonytam.chefsmenu.MenuActivity"/>
+      <point      
+        x = "2597"      
+        y = "91"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.wordpress.tonytam.chefsmenu.MenuActivity"/>
+      <point      
+        x = "486"      
+        y = "91"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.wordpress.tonytam.chefsmenu.SubMenuListActivity"/>
+      <point      
+        x = "550"      
+        y = "2810"/>
+    </statePointEntry>
+  </locations>
+</navigationModel>

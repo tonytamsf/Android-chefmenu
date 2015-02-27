@@ -6,20 +6,19 @@ import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import com.wordpress.tonytam.chefsmenu.model.*;
 
-
-import com.wordpress.tonytam.chefsmenu.dummy.DummyContent;
 
 /**
- * A list fragment representing a list of MenuFoodItems. This fragment
+ * A list fragment representing a list of MenuItems. This fragment
  * also supports tablet devices by allowing list items to be given an
  * 'activated' state upon selection. This helps indicate which item is
- * currently being viewed in a {@link MenuFoodItemDetailFragment}.
+ * currently being viewed in a {@link MenuDetailFragment}.
  * <p/>
  * Activities containing this fragment MUST implement the {@link Callbacks}
  * interface.
  */
-public class MenuFoodItemListFragment extends ListFragment {
+public class MenuListFragment extends ListFragment {
 
     /**
      * The serialization (saved instance state) Bundle key representing the
@@ -64,19 +63,20 @@ public class MenuFoodItemListFragment extends ListFragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public MenuFoodItemListFragment() {
+    public MenuListFragment() {
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+/*
         // TODO: replace with a real list adapter.
-        setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(
+        setListAdapter(new ArrayAdapter<MenuContent.MenuItem>(
                 getActivity(),
                 android.R.layout.simple_list_item_activated_1,
                 android.R.id.text1,
-                DummyContent.ITEMS));
+                MenuContent.ITEMS));
+                */
     }
 
     @Override
@@ -116,7 +116,7 @@ public class MenuFoodItemListFragment extends ListFragment {
 
         // Notify the active callbacks interface (the activity, if the
         // fragment is attached to one) that an item has been selected.
-        mCallbacks.onItemSelected(DummyContent.ITEMS.get(position).id);
+        mCallbacks.onItemSelected(MenuContent.ITEMS.get(position).id);
     }
 
     @Override
