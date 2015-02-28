@@ -2,11 +2,15 @@ package com.wordpress.tonytam.chefsmenu;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
 import com.wordpress.tonytam.chefsmenu.model.*;
+
+import java.util.ArrayList;
 
 
 /**
@@ -69,14 +73,19 @@ public class MenuListFragment extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-/*
-        // TODO: replace with a real list adapter.
-        setListAdapter(new ArrayAdapter<MenuContent.MenuItem>(
-                getActivity(),
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
-                MenuContent.ITEMS));
-                */
+
+        // Network, fetch data
+        MenuRestClientUse menu = new MenuRestClientUse((Fragment) this);
+        menu.fetchMenuItems(new MenuRestClientUse.dataReady () {
+            @Override
+            public void onDataReady(ArrayList<MenuItem> items) {
+                setListAdapter(new MenuItemArrayAdaptor(
+                        getActivity(),
+                        R.layout.fragment_menu_detail,
+                        R.id.menu_detail_name,
+                        items));
+            }
+        });
     }
 
     @Override
@@ -88,6 +97,7 @@ public class MenuListFragment extends ListFragment {
                 && savedInstanceState.containsKey(STATE_ACTIVATED_POSITION)) {
             setActivatedPosition(savedInstanceState.getInt(STATE_ACTIVATED_POSITION));
         }
+
     }
 
     @Override
@@ -116,7 +126,7 @@ public class MenuListFragment extends ListFragment {
 
         // Notify the active callbacks interface (the activity, if the
         // fragment is attached to one) that an item has been selected.
-        mCallbacks.onItemSelected(MenuContent.ITEMS.get(position).id);
+        mCallbacks.onItemSelected(MenuContent.ITEMS.get(position).name);
     }
 
     @Override
