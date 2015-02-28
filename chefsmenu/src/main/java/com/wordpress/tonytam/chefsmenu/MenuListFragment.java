@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import com.wordpress.tonytam.chefsmenu.model.*;
+
+import com.wordpress.tonytam.chefsmenu.model.MenuContent;
 
 
 /**
@@ -88,6 +88,9 @@ public class MenuListFragment extends ListFragment {
                 && savedInstanceState.containsKey(STATE_ACTIVATED_POSITION)) {
             setActivatedPosition(savedInstanceState.getInt(STATE_ACTIVATED_POSITION));
         }
+
+        MenuRestClientUse menu = new MenuRestClientUse();
+        menu.getMenItems();
     }
 
     @Override
