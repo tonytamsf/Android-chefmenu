@@ -51,7 +51,7 @@ public class MenuDetailFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_menu_detail, container, false);
 
         // Show the dummy content as text in a TextView.
-        if (false && mItem != null) {
+        if (mItem != null) {
             ((TextView) rootView.findViewById(R.id.menu_detail_name)).setText(mItem.name.toString());
             System.out.print(mItem.name.toString());
         }

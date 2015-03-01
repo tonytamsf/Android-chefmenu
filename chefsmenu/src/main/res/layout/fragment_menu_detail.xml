@@ -2,22 +2,48 @@
     android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:focusable="false">
+    android:focusable="false"
+    android:id="@+id/menu_description"
+    android:clickable="true">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/menu_image"
-        android:src="@drawable/nav_dessert_menu" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="bottom">
 
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools" android:id="@+id/menu_detail_name"
-        style="?android:attr/textAppearanceLarge" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:padding="16dp" android:textIsSelectable="true"
-        tools:context="com.wordpress.tonytam.chefsmenu.MenuDetailFragment"
-        android:text="menu item "
-        android:alpha="10"
-        android:textColor="@color/hint_foreground_material_light"
-        android:layout_gravity="bottom" />
+        <ImageView
+            android:layout_width="600dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/menu_image"
+            android:src="@drawable/nav_dessert_menu"
+            android:clickable="true" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools" android:id="@+id/menu_detail_name"
+                style="?android:attr/textAppearanceLarge" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:padding="16dp" android:textIsSelectable="true"
+                tools:context="com.wordpress.tonytam.chefsmenu.MenuDetailFragment"
+                android:text="menu item "
+                android:alpha="10"
+                android:textColor="@color/hint_foreground_material_light"
+                android:layout_gravity="bottom"
+                android:clickable="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Small Text"
+                android:id="@+id/menu_detail_description"
+                android:layout_gravity="bottom"
+                android:clickable="true" />
+
+        </RelativeLayout>
+    </LinearLayout>
 
 </FrameLayout>

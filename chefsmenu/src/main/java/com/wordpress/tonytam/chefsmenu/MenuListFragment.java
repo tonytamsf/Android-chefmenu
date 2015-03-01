@@ -7,6 +7,7 @@ import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.wordpress.tonytam.chefsmenu.model.*;
 
@@ -60,6 +61,7 @@ public class MenuListFragment extends ListFragment {
     private static Callbacks sDummyCallbacks = new Callbacks() {
         @Override
         public void onItemSelected(String id) {
+            System.out.print("sDummyCallbacks::onItemSelected()");
         }
     };
 
@@ -76,7 +78,7 @@ public class MenuListFragment extends ListFragment {
 
         // Network, fetch data
         MenuRestClientUse menu = new MenuRestClientUse((Fragment) this);
-        menu.fetchMenuItems(new MenuRestClientUse.dataReady () {
+        menu.fetchMenuItems(new MenuRestClientUse.dataReady() {
             @Override
             public void onDataReady(ArrayList<MenuItem> items) {
                 setListAdapter(new MenuItemArrayAdaptor(

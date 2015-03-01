@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity
@@ -60,10 +61,7 @@ public class MainActivity extends ActionBarActivity
 
         // Begin the transaction
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-// Replace the container with the new fragment
         ft.add(R.id.menu_placeholder, new MenuListFragment());
-// or ft.add(R.id.your_placeholder, new FooFragment());
-// Execute the changes specified
         ft.commit();
 
     }
@@ -120,6 +118,7 @@ public class MainActivity extends ActionBarActivity
 
     @Override
     public void onItemSelected (String id) {
+        Toast.makeText(this.getBaseContext(), "onItemSelected", Toast.LENGTH_LONG).show();
 
     }
 

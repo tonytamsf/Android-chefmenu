@@ -37,7 +37,11 @@ public class MenuItemArrayAdaptor extends ArrayAdapter <MenuItem> {
         
         TextView name = (TextView) convertView.findViewById(R.id.menu_detail_name);
         ImageView image =  (ImageView) convertView.findViewById(R.id.menu_image);
+        TextView description = (TextView) convertView.findViewById(R.id.menu_detail_description);
+        
         name.setText(item.name);
+        description.setText(item.description);
+        
         Picasso.with(getContext()).load(Uri.parse(item.primary_image_url)).into(image);
 
         return convertView;
