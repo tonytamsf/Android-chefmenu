@@ -2,6 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools" android:id="@+id/menu_list"
     android:name="com.wordpress.tonytam.chefsmenu.MenuListFragment"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:layout_marginLeft="16dp" android:layout_marginRight="16dp"
+    android:layout_marginLeft="2dp" android:layout_marginRight="2dp"
     tools:context="com.wordpress.tonytam.chefsmenu.MenuListActivity"
     tools:layout="@android:layout/list_content" />

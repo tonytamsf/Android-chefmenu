@@ -46,13 +46,23 @@ class MenuRestClientUse {
                 System.err.println("onSuccess " + response.toString());
 
                     try {
-                        JSONArray menuItemsJson = response.getJSONArray("venues").getJSONObject(0)
-                                .getJSONArray("menus").getJSONObject(0)
-                                .getJSONArray("sections").getJSONObject(0)
-                                .getJSONArray("subsections").getJSONObject(0)
-                                .getJSONArray("contents");
-                        Toast.makeText(a.getActivity().getBaseContext(), menuItemsJson.toString(), Toast.LENGTH_LONG).show();
-                        MenuContent.ITEMS.addAll(MenuItem.fromJson(menuItemsJson));
+                        JSONArray menus = response.getJSONArray("venues").getJSONObject(0)
+                                .getJSONArray("menus");
+                                
+                        JSONObject section;
+                        for (int i = 0; i < menus.length(); i++) {
+                            section = menus.getJSONObject(i);
+                            JSONArray sections = section.getJSONArray("sections");
+                            for (int s = 0; s < sections.length(); s++) {
+                                JSONArray subsections = sections.getJSONObject(s).getJSONArray("subsections");
+                                for (int ss = 0; ss < subsections.length(); ss++)  {
+                                    JSONArray contents = subsections.getJSONObject(ss).getJSONArray("contents");
+                                    MenuContent.ITEMS.addAll(MenuItem.fromJson(contents));
+
+                                }
+                            }
+                        }
+
                         d.onDataReady(MenuContent.ITEMS);
                     } catch (JSONException e) {
                         e.printStackTrace();

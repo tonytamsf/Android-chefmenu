@@ -1,49 +1,61 @@
 <FrameLayout
-    android:layout_height="fill_parent"
+    android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:focusable="false"
     android:id="@+id/menu_description"
-    android:clickable="true">
+    android:clickable="true"
+    android:padding="2dp"
+    android:background="#00000000">
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_gravity="bottom">
+        android:layout_gravity="bottom|left"
+        android:background="#00000000">
 
         <ImageView
-            android:layout_width="600dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:id="@+id/menu_image"
             android:src="@drawable/nav_dessert_menu"
-            android:clickable="true" />
+            android:clickable="true"
+            android:layout_gravity="left"
+            android:scaleType="centerCrop" />
 
-        <RelativeLayout
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent"
+            android:background="#00000000">
 
             <TextView xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools" android:id="@+id/menu_detail_name"
-                style="?android:attr/textAppearanceLarge" android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:padding="16dp" android:textIsSelectable="true"
+                style="?android:attr/textAppearanceMedium" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 tools:context="com.wordpress.tonytam.chefsmenu.MenuDetailFragment"
                 android:text="menu item "
                 android:alpha="10"
                 android:textColor="@color/hint_foreground_material_light"
-                android:layout_gravity="bottom"
-                android:clickable="true" />
+                android:layout_gravity="left|right"
+                android:clickable="true"
+                android:layout_alignEnd="@id/menu_detail_name"
+                android:layout_marginLeft="10dp"
+                android:background="#00000000" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="Small Text"
                 android:id="@+id/menu_detail_description"
-                android:layout_gravity="bottom"
-                android:clickable="true" />
-
-        </RelativeLayout>
+                android:layout_gravity="bottom|left"
+                android:clickable="true"
+                android:layout_alignEnd="@id/menu_detail_name"
+                android:layout_marginLeft="10dp"
+                android:background="#00000000" />
+        </LinearLayout>
     </LinearLayout>
 
 </FrameLayout>

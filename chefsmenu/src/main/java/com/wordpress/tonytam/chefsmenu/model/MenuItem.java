@@ -31,7 +31,7 @@ public class MenuItem {
             if (o != null) {
                 m.primary_image_url = o.get(0).toString();
             } else {
-                m.primary_image_url = "http://static1.squarespace.com/static/528ef1eee4b02543d3a4caab/540543c8e4b0b0a7e1895fd3/540543e8e4b0b0a7e189600d/1414162458865/I-Priv%C3%A9+9.jpg?format=1500w";
+                m.primary_image_url = "https://static1.squarespace.com/static/528ef1eee4b02543d3a4caab/t/54f2a72ee4b09389aa38dd8e/1425188654968/placeholder.jpeg";
             }
             
         } catch (JSONException e) {
