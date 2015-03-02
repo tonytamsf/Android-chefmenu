@@ -9,11 +9,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.LruCache;
 import com.squareup.picasso.Picasso;
 import com.wordpress.tonytam.chefsmenu.model.MenuItem;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
+
 import java.util.List;
 
 /**
@@ -21,6 +20,16 @@ import java.util.List;
  */
 public class MenuItemArrayAdaptor extends ArrayAdapter <MenuItem> {
 
+    // View lookup cache
+    private static class ViewHolder {
+        TextView name;
+        ImageView image;
+        TextView description;
+
+    }
+    
+    public Picasso _builder;
+    
     public MenuItemArrayAdaptor(Context context, int resource, int textViewResourceId, List<MenuItem> objects) {
         super(context, resource, textViewResourceId, objects);
     }
@@ -28,23 +37,44 @@ public class MenuItemArrayAdaptor extends ArrayAdapter <MenuItem> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
+        ViewHolder viewHolder;
         MenuItem item = getItem(position);
         if (convertView == null ) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_menu_detail,
+            viewHolder = new ViewHolder();
+
+            convertView = LayoutInflater.from(getContext()).inflate(
+                    R.layout.fragment_menu_detail,
                     parent,
-                    false
-            );
+                    false);
+            
+            viewHolder.name = (TextView) convertView.findViewById(R.id.menu_detail_name);
+            viewHolder.image = (ImageView) convertView.findViewById(R.id.menu_image);
+            viewHolder.description = (TextView) convertView.findViewById(R.id.menu_detail_description);
+            
+            convertView.setTag(viewHolder);
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
         }
-        
-        TextView name = (TextView) convertView.findViewById(R.id.menu_detail_name);
-        ImageView image =  (ImageView) convertView.findViewById(R.id.menu_image);
-        TextView description = (TextView) convertView.findViewById(R.id.menu_detail_description);
-        
-        name.setText(item.name);
-        description.setText(item.description);
-        
-        Picasso.with(getContext()).load(Uri.parse(item.primary_image_url)).into(image);
+
+        viewHolder.name.setText(item.name);
+        viewHolder.description.setText(item.description);
+
+        getPicasso()
+                .with(getContext())
+                .load(Uri
+                .parse(item.primary_image_url))
+                .noFade()
+                .placeholder(R.drawable.placeholder)
+                .priority(Picasso.Priority.HIGH)
+                .into(viewHolder.image);
 
         return convertView;
+    }
+    
+    public Picasso getPicasso() {
+        if (_builder == null) {
+            _builder = new Picasso.Builder(getContext()).memoryCache(new LruCache(200*1024*1024)).build();
+        }
+        return _builder;
     }
 }

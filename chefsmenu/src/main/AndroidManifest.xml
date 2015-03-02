@@ -12,7 +12,9 @@
         >
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main"
+            >
+            
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,12 +23,14 @@
         </activity>
         <activity
             android:name=".MenuListActivity"
-            android:label="@string/title_menu_list" >
+            android:label="@string/title_menu_list"
+           >
         </activity>
         <activity
             android:name=".MenuDetailActivity"
             android:label="@string/title_menu_detail"
-            android:parentActivityName=".MenuListActivity" >
+            android:parentActivityName=".MenuListActivity"
+           >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.wordpress.tonytam.chefsmenu.MenuListActivity" />

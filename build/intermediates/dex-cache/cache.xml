@@ -2,74 +2,74 @@
 <items version="2" >
 
     <item
-        jar="/Users/tonytam/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="/Users/tonytam/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-9b62d042a0e7dc807ee8ce635bff269eb00866fb.jar" />
-    </item>
-    <item
-        jar="/Users/tonytam/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="/Users/tonytam/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/pre-dexed/debug/classes-f0469c53ed397af0aa172ee5c9ed8d774a41f856.jar" />
-    </item>
-    <item
-        jar="/Users/tonytam/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.6/a845a88238be0b5be9d238652c1bc0605ef91f52/android-async-http-1.4.6.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a845a88238be0b5be9d238652c1bc0605ef91f52">
-        <dex dex="/Users/tonytam/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/pre-dexed/debug/android-async-http-1.4.6-09440bf44fe7028aca9985b02d7df97be5276ab4.jar" />
-    </item>
-    <item
-        jar="/Users/tonytam/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.4.0/f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2/picasso-2.4.0.jar"
+        jar="/Users/yahoo/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.4.0/f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2/picasso-2.4.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2">
-        <dex dex="/Users/tonytam/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/pre-dexed/debug/picasso-2.4.0-51b0673069880ae91490caa1a4db2263784b2ef3.jar" />
+        <dex dex="/Users/yahoo/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/pre-dexed/debug/picasso-2.4.0-c706c3abf02bfba1a43b8285b80b40282691335f.jar" />
     </item>
     <item
-        jar="/Users/tonytam/Dropbox/Developer/git/Android-chefmenu/chefsmenu/libs/codepath-oauth-0.4.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="e2bf2d92cfe90d44287c510d955d0c979631e99e">
-        <dex dex="/Users/tonytam/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/pre-dexed/debug/codepath-oauth-0.4.1-049a652340b0881a6b98e7adc059eb1eff179f9d.jar" />
-    </item>
-    <item
-        jar="/Users/tonytam/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="/Users/tonytam/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/pre-dexed/debug/classes-d93dc0678872eeaafa4e71f785d7c69e80cbec9d.jar" />
-    </item>
-    <item
-        jar="/Users/tonytam/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jar="/Users/yahoo/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="/Users/tonytam/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-ac2755e6b534b12c902d9e0cfd6559ca4ec52b20.jar" />
+        <dex dex="/Users/yahoo/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-3b706541585c1cee4d079d52f2fd4a034f9c06c8.jar" />
     </item>
     <item
-        jar="/Users/tonytam/Dropbox/Developer/git/Android-chefmenu/chefsmenu/libs/scribe-codepath-0.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a580d06de954001f787e8d024bfcf931fe30bdda">
-        <dex dex="/Users/tonytam/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/pre-dexed/debug/scribe-codepath-0.0.3-70f2ad6a5f51e913c5e4c5ca5b9f9ffa129d3947.jar" />
-    </item>
-    <item
-        jar="/Users/tonytam/Dropbox/Developer/git/Android-chefmenu/chefsmenu/libs/codepath-utils.jar"
+        jar="/Users/yahoo/Dropbox/Developer/git/Android-chefmenu/chefsmenu/libs/codepath-utils.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="10901a5ef726eacf1b2443b7f38dc4cc9cd3f7d4">
-        <dex dex="/Users/tonytam/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/pre-dexed/debug/codepath-utils-659344a7642cb2eb4c9a0ac2d852045b42c3791f.jar" />
+        <dex dex="/Users/yahoo/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/pre-dexed/debug/codepath-utils-f2f215cc184f9b5e6970035d7aa4d8a3b5edf550.jar" />
     </item>
     <item
-        jar="/Users/tonytam/.gradle/caches/modules-2/files-2.1/com.michaelpardo/activeandroid/3.1.0-SNAPSHOT/4ab7b0182975bc57c49efc5e0b3baa4a10e4ec08/activeandroid-3.1.0-SNAPSHOT.jar"
+        jar="/Users/yahoo/Dropbox/Developer/git/Android-chefmenu/chefsmenu/libs/codepath-oauth-0.4.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e2bf2d92cfe90d44287c510d955d0c979631e99e">
+        <dex dex="/Users/yahoo/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/pre-dexed/debug/codepath-oauth-0.4.1-52ec1f1e2678a0981dfeb185ba32f2ecfb2e08bf.jar" />
+    </item>
+    <item
+        jar="/Users/yahoo/Dropbox/Developer/git/Android-chefmenu/chefsmenu/libs/scribe-codepath-0.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a580d06de954001f787e8d024bfcf931fe30bdda">
+        <dex dex="/Users/yahoo/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/pre-dexed/debug/scribe-codepath-0.0.3-d50162b6d5dad454801637f100ee84c6e42c7ae1.jar" />
+    </item>
+    <item
+        jar="/Users/yahoo/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="/Users/yahoo/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-60c7a7295215eb2fc5aef79394c690b63060b1a7.jar" />
+    </item>
+    <item
+        jar="/Users/yahoo/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.6/a845a88238be0b5be9d238652c1bc0605ef91f52/android-async-http-1.4.6.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a845a88238be0b5be9d238652c1bc0605ef91f52">
+        <dex dex="/Users/yahoo/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/pre-dexed/debug/android-async-http-1.4.6-47f6f1bf43d3375a3fa66015b4e7b7c1b9cb138d.jar" />
+    </item>
+    <item
+        jar="/Users/yahoo/.gradle/caches/modules-2/files-2.1/com.michaelpardo/activeandroid/3.1.0-SNAPSHOT/4ab7b0182975bc57c49efc5e0b3baa4a10e4ec08/activeandroid-3.1.0-SNAPSHOT.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4ab7b0182975bc57c49efc5e0b3baa4a10e4ec08">
-        <dex dex="/Users/tonytam/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/pre-dexed/debug/activeandroid-3.1.0-SNAPSHOT-9977057f98d6096a8ba6c5e724c1ac8338c6c26b.jar" />
+        <dex dex="/Users/yahoo/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/pre-dexed/debug/activeandroid-3.1.0-SNAPSHOT-b13dbeeb5cd30aa353b45551edfcfca70b1ec2af.jar" />
+    </item>
+    <item
+        jar="/Users/yahoo/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/Users/yahoo/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/pre-dexed/debug/classes-a77da12a2553887f2fbef9a9d5dada6b9016d546.jar" />
+    </item>
+    <item
+        jar="/Users/yahoo/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="/Users/yahoo/Dropbox/Developer/git/Android-chefmenu/chefsmenu/build/intermediates/pre-dexed/debug/classes-837939b8c11b7a3a6d4cb98c37f6a5ad4c2b43a0.jar" />
     </item>
 
 </items>

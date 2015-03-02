@@ -6,7 +6,9 @@
     android:id="@+id/menu_description"
     android:clickable="true"
     android:padding="2dp"
-    android:background="#00000000">
+    android:background="#00000000"
+    android:nestedScrollingEnabled="false"
+    android:measureAllChildren="true">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -16,8 +18,8 @@
         android:background="#00000000">
 
         <ImageView
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
             android:id="@+id/menu_image"
             android:src="@drawable/nav_dessert_menu"
             android:clickable="true"
