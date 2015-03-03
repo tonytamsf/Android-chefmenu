@@ -45,13 +45,16 @@ class MenuRestClientUse {
 
                 System.err.println("onSuccess " + response.toString());
 
+
                 MenuSection menus = new MenuSection();
+                MenuSection.topMenu = menus;
+
                 menus.menuSections = new ArrayList<MenuSection>();
 
                     try {
                         JSONArray menusJson = response.getJSONArray("venues").getJSONObject(0)
                                 .getJSONArray("menus");
-                                
+
                         JSONObject sectionJson;
                         for (int i = 0; i < menusJson.length(); i++) {
                             MenuSection menu = new MenuSection();
@@ -59,6 +62,8 @@ class MenuRestClientUse {
                             menus.menuSections.add(menu);
 
                             sectionJson = menusJson.getJSONObject(i);
+                            menu.name = sectionJson.getString("menu_name");
+
                             JSONArray sectionsJson = sectionJson.getJSONArray("sections");
 
                             for (int s = 0; s < sectionsJson.length(); s++) {
@@ -67,11 +72,15 @@ class MenuRestClientUse {
                                 menu.menuSections.add(section);
 
                                 JSONArray subsectionsJson = sectionsJson.getJSONObject(s).getJSONArray("subsections");
+                                section.name = sectionsJson.getJSONObject(s).getString("section_name");
+
                                 for (int ss = 0; ss < subsectionsJson.length(); ss++)  {
                                     MenuSection subsection = new MenuSection();
                                     subsection.menuItems = new ArrayList<MenuItem>();
 
                                     JSONArray contents = subsectionsJson.getJSONObject(ss).getJSONArray("contents");
+                                    //subsection.name = subsectionsJson.getJSONObject(ss).getString("section_name");
+                                    System.err.println(contents.toString());
                                     subsection.menuItems.addAll(MenuItem.fromJson(contents));
                                     MenuContent.ITEMS = subsection.menuItems;
                                 }

@@ -14,10 +14,13 @@ public class MenuItem {
     public static List<MenuItem> ITEMS = new ArrayList<MenuItem>();
 
     public String name;
+    public TYPE section_type;
     public String description;
     public String primary_image_url;
+
     public enum TYPE {
         MENU_ITEM,
+        SECTION_TEXT,
         SECTION,
         SUBSECTION
     }
@@ -27,18 +30,28 @@ public class MenuItem {
     
     public static MenuItem fromJson(JSONObject jsonObject) {
         MenuItem m = new MenuItem();
-        
         try {
-            m.name = jsonObject.getString("name");
-            m.description = jsonObject.getString("description");
-            JSONArray o;
-            o = jsonObject.optJSONArray("photos");
-            if (o != null) {
-                m.primary_image_url = o.get(0).toString();
+            String type = jsonObject.getString("type");
+            if (type.equals("ITEM")) {
+                m.name = jsonObject.getString("name");
+                m.description = jsonObject.getString("description");
+                m.section_type = TYPE.MENU_ITEM;
+
+
+                JSONArray o;
+                o = jsonObject.optJSONArray("photos");
+                if (o != null) {
+                    m.primary_image_url = o.get(0).toString();
+                } else {
+                    m.primary_image_url = "https://static1.squarespace.com/static/528ef1eee4b02543d3a4caab/t/54f2a72ee4b09389aa38dd8e/1425188654968/placeholder.jpeg";
+                }
             } else {
+                m.description = jsonObject.getString("text");
+                m.name = "";
                 m.primary_image_url = "https://static1.squarespace.com/static/528ef1eee4b02543d3a4caab/t/54f2a72ee4b09389aa38dd8e/1425188654968/placeholder.jpeg";
+                m.section_type = TYPE.SECTION_TEXT;
             }
-            
+
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
@@ -46,13 +59,14 @@ public class MenuItem {
         return m;
     }
     
-    public static ArrayList<MenuItem> fromJson(JSONArray jsonArary) {
-        ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>(jsonArary.length());
+    public static ArrayList<MenuItem> fromJson(JSONArray jsonArray) {
+        ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>(jsonArray.length());
         
-        for (int i=0; i < jsonArary.length(); i++) {
+        for (int i=0; i < jsonArray.length(); i++) {
             JSONObject menuJson = null;
             try {
-                menuJson = jsonArary.getJSONObject(i);
+                menuJson = jsonArray.getJSONObject(i);
+                System.err.println("Menu item: " + menuJson.toString());
                 
             } catch(JSONException e) {
                 e.printStackTrace();
