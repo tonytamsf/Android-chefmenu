@@ -1,12 +1,12 @@
 package com.wordpress.tonytam.chefsmenu;
 
-import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.wordpress.tonytam.chefsmenu.model.MenuContent;
 import com.wordpress.tonytam.chefsmenu.model.MenuItem;
+import com.wordpress.tonytam.chefsmenu.model.MenuSection;
 
 import org.apache.http.Header;
 import org.json.JSONArray;
@@ -45,20 +45,35 @@ class MenuRestClientUse {
 
                 System.err.println("onSuccess " + response.toString());
 
+                MenuSection menus = new MenuSection();
+                menus.menuSections = new ArrayList<MenuSection>();
+
                     try {
-                        JSONArray menus = response.getJSONArray("venues").getJSONObject(0)
+                        JSONArray menusJson = response.getJSONArray("venues").getJSONObject(0)
                                 .getJSONArray("menus");
                                 
-                        JSONObject section;
-                        for (int i = 0; i < menus.length(); i++) {
-                            section = menus.getJSONObject(i);
-                            JSONArray sections = section.getJSONArray("sections");
-                            for (int s = 0; s < sections.length(); s++) {
-                                JSONArray subsections = sections.getJSONObject(s).getJSONArray("subsections");
-                                for (int ss = 0; ss < subsections.length(); ss++)  {
-                                    JSONArray contents = subsections.getJSONObject(ss).getJSONArray("contents");
-                                    MenuContent.ITEMS.addAll(MenuItem.fromJson(contents));
+                        JSONObject sectionJson;
+                        for (int i = 0; i < menusJson.length(); i++) {
+                            MenuSection menu = new MenuSection();
+                            menu.menuSections = new ArrayList<MenuSection>();
+                            menus.menuSections.add(menu);
 
+                            sectionJson = menusJson.getJSONObject(i);
+                            JSONArray sectionsJson = sectionJson.getJSONArray("sections");
+
+                            for (int s = 0; s < sectionsJson.length(); s++) {
+                                MenuSection section = new MenuSection();
+                                section.menuSections = new ArrayList<MenuSection>();
+                                menu.menuSections.add(section);
+
+                                JSONArray subsectionsJson = sectionsJson.getJSONObject(s).getJSONArray("subsections");
+                                for (int ss = 0; ss < subsectionsJson.length(); ss++)  {
+                                    MenuSection subsection = new MenuSection();
+                                    subsection.menuItems = new ArrayList<MenuItem>();
+
+                                    JSONArray contents = subsectionsJson.getJSONObject(ss).getJSONArray("contents");
+                                    subsection.menuItems.addAll(MenuItem.fromJson(contents));
+                                    MenuContent.ITEMS = subsection.menuItems;
                                 }
                             }
                         }

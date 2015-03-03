@@ -61,8 +61,7 @@ public class MenuItemArrayAdaptor extends ArrayAdapter <MenuItem> {
 
         getPicasso()
                 .with(getContext())
-                .load(Uri
-                .parse(item.primary_image_url))
+                .load(Uri.parse(item.primary_image_url))
                 .noFade()
                 .placeholder(R.drawable.placeholder)
                 .priority(Picasso.Priority.HIGH)

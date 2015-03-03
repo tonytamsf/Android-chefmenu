@@ -16,7 +16,12 @@ public class MenuItem {
     public String name;
     public String description;
     public String primary_image_url;
-    
+    public enum TYPE {
+        MENU_ITEM,
+        SECTION,
+        SUBSECTION
+    }
+
     ArrayList<String> photos;
     ArrayList<String> options;
     

@@ -4,12 +4,12 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.wordpress.tonytam.chefsmenu.model.*;
+import com.wordpress.tonytam.chefsmenu.model.MenuContent;
+import com.wordpress.tonytam.chefsmenu.model.MenuItem;
 
 import java.util.ArrayList;
 
@@ -160,5 +160,13 @@ public class MenuListFragment extends ListFragment {
         }
 
         mActivatedPosition = position;
+    }
+
+    @Override
+    public void setListShown(boolean shown) {
+        super.setListShown(shown);
+        if (shown == true) {
+            ((ActionBarActivity) getActivity()).getActionBar().hide();
+        }
     }
 }

@@ -1,26 +1,19 @@
 package com.wordpress.tonytam.chefsmenu;
 
 import android.app.Activity;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.content.Context;
-import android.os.Build;
-import android.os.Bundle;
-import android.view.Gravity;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.widget.DrawerLayout;
-import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -82,9 +75,21 @@ public class MainActivity extends ActionBarActivity
                 mTitle = getString(R.string.title_section1);
                 break;
             case 2:
-                mTitle = getString(R.string.title_section2);
+                mTitle = "-   Signature";
                 break;
             case 3:
+                mTitle = "-   Small Plates";
+                break;
+            case 4:
+                mTitle = "-   Green";
+                break;
+            case 5:
+                mTitle = "-   Classic Sushi";
+                break;
+            case 6:
+                mTitle = getString(R.string.title_section2);
+                break;
+            case 7:
                 mTitle = getString(R.string.title_section3);
                 break;
         }
