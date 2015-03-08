@@ -11,11 +11,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.Locale;
 
 
-public class ChefMenuActivity extends ActionBarActivity {
+public class ChefMenuActivity extends ActionBarActivity
+    implements MenuListFragment.Callbacks {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -86,7 +88,7 @@ public class ChefMenuActivity extends ActionBarActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            return MenuListFragment.newInstance(position + 1);
         }
 
         @Override
@@ -141,6 +143,12 @@ public class ChefMenuActivity extends ActionBarActivity {
             View rootView = inflater.inflate(R.layout.fragment_chef_menu, container, false);
             return rootView;
         }
+    }
+
+    @Override
+    public void onItemSelected (String id) {
+        Toast.makeText(this.getBaseContext(), "onItemSelected", Toast.LENGTH_LONG).show();
+
     }
 
 }

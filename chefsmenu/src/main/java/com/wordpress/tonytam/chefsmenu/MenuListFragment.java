@@ -169,4 +169,12 @@ public class MenuListFragment extends ListFragment {
             ((ActionBarActivity) getActivity()).getActionBar().hide();
         }
     }
+
+    public static MenuListFragment newInstance(int sectionNumber) {
+        MenuListFragment fragment = new MenuListFragment();
+        Bundle args = new Bundle();
+        args.putInt(STATE_ACTIVATED_POSITION, sectionNumber);
+        fragment.setArguments(args);
+        return fragment;
+    }
 }
