@@ -1,4 +1,5 @@
 <resources>
+    <item name="main" type="id">@id/menu_detail_container</item>
 
     <!--
     Layout alias to replace the single-pane version of the layout with a

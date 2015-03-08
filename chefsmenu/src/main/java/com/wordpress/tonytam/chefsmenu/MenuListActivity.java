@@ -34,8 +34,28 @@ public class MenuListActivity extends FragmentActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_list);
+        /*
+        if (mTwoPane) {
+            // In two-pane mode, show the detail view in this activity by
+            // adding or replacing the detail fragment using a
+            // fragment transaction.
+            Bundle arguments = new Bundle();
+            arguments.putString(ItemDetailFragment.ARG_ITEM_ID, id);
+            ItemDetailFragment fragment = new ItemDetailFragment();
+            fragment.setArguments(arguments);
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.item_detail_container, fragment)
+                    .commit();
 
-        if (findViewById(R.id.menu_detail_container) != null) {
+        } else {
+            // In single-pane mode, simply start the detail activity
+            // for the selected item ID.
+            Intent detailIntent = new Intent(this, ItemDetailActivity.class);
+            detailIntent.putExtra(ItemDetailFragment.ARG_ITEM_ID, id);
+            startActivity(detailIntent);
+        }
+        */
+        //if (findViewById(R.id.menu_detail_container) != null) {
             // The detail container view will be present only in the
             // large-screen layouts (res/values-large and
             // res/values-sw600dp). If this view is present, then the
@@ -47,7 +67,7 @@ public class MenuListActivity extends FragmentActivity
             ((MenuListFragment) getSupportFragmentManager()
                     .findFragmentById(R.id.menu_list))
                     .setActivateOnItemClick(true);
-        }
+        //}
 
         // TODO: If exposing deep links into your app, handle intents here.
     }

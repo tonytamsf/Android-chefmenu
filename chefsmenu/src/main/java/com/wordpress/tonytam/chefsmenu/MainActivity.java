@@ -1,10 +1,9 @@
 package com.wordpress.tonytam.chefsmenu;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -56,17 +55,21 @@ public class MainActivity extends ActionBarActivity
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
+        Intent intent = new Intent(this, MenuListActivity.class);
+        startActivity(intent);
 
+        /*
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
                 .commit();
-
+*/
+        /*
         // Begin the transaction
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.add(R.id.menu_placeholder, new MenuListFragment());
         ft.commit();
-
+    */
     }
 
     public void onSectionAttached(int number) {

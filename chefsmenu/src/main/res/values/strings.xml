@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Chef\'s Menu</string>
+    <string name="app_name">I Privé Menu</string>
     <string name="title_menuitem_detail">Menu Detail</string>
     <string name="title_menufooditem_list">MenuFoodItems</string>
     <string name="title_menufooditem_detail">MenuFoodItem Detail</string>
@@ -23,4 +23,7 @@
     <string name="action_example">Example action</string>
     <string name="title_menu_list">MenuItems</string>
     <string name="title_menu_detail">Menu Detail</string>
+    <string name="title_testmasterdetailactivity_list">TestItems</string>
+    <string name="title_testmasterdetailactivity_detail">TestMasterDetailActivity Detail</string>
+    <string name="title_activity_chef_menu">Chef\'s Menu</string>
 </resources>
