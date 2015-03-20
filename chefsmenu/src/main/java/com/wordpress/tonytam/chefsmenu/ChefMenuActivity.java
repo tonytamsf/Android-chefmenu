@@ -4,20 +4,20 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 
 public class ChefMenuActivity extends ActionBarActivity
-    implements MenuListFragment.Callbacks {
+    implements MenuListFragment.Callbacks,
+        SubMenuFragment.OnFragmentInteractionListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -80,15 +80,38 @@ public class ChefMenuActivity extends ActionBarActivity
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
+        ArrayList<SubMenuFragment> subMenuFragments;
+
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
+            subMenuFragments = new ArrayList<SubMenuFragment>(3);
         }
 
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            return MenuListFragment.newInstance(position + 1);
+            if (false) {
+                // getItem is called to instantiate the fragment for the given page.
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                SubMenuFragment fragment = SubMenuFragment.newInstance(position + 1);
+                fragmentTransaction.replace(R.layout.fragment_submenu, fragment);
+                fragmentTransaction.commit();
+                return fragment;
+            } else {
+                try {
+                    if (subMenuFragments.get(position) != null) {
+                        return subMenuFragments.get(position);
+                    } else {
+                        // save this, do not create new new fragments
+                        subMenuFragments.add(position, SubMenuFragment.newInstance(position + 1));
+                        return subMenuFragments.get(position);
+                    }
+                } catch (IndexOutOfBoundsException e) {
+                    // save this, do not create new new fragments
+                    subMenuFragments.add(position, SubMenuFragment.newInstance(position + 1));
+                    return subMenuFragments.get(position);
+                }
+            }
         }
 
         @Override
@@ -112,43 +135,14 @@ public class ChefMenuActivity extends ActionBarActivity
         }
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_chef_menu, container, false);
-            return rootView;
-        }
-    }
-
     @Override
     public void onItemSelected (String id) {
         Toast.makeText(this.getBaseContext(), "onItemSelected", Toast.LENGTH_LONG).show();
 
     }
 
+    @Override
+    public void onFragmentInteraction(String id) {
+
+    }
 }

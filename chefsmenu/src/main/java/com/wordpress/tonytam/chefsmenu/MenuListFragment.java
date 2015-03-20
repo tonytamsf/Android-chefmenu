@@ -83,7 +83,7 @@ public class MenuListFragment extends ListFragment {
             public void onDataReady(ArrayList<MenuItem> items) {
                 setListAdapter(new MenuItemArrayAdaptor(
                         getActivity(),
-                        R.layout.fragment_menu_detail,
+                        R.layout.fragment_main,
                         R.id.menu_detail_name,
                         items));
             }
@@ -108,7 +108,7 @@ public class MenuListFragment extends ListFragment {
 
         // Activities containing this fragment must implement its callbacks.
         if (!(activity instanceof Callbacks)) {
-            throw new IllegalStateException("Activity must implement fragment's callbacks.");
+           // throw new IllegalStateException("Activity must implement fragment's callbacks. " + activity.toString());
         }
 
         mCallbacks = (Callbacks) activity;
