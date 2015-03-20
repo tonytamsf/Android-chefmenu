@@ -3,6 +3,8 @@ package com.wordpress.tonytam.chefsmenu;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +27,8 @@ import com.wordpress.tonytam.chefsmenu.dummy.DummyContent;
  * interface.
  */
 public class SubMenuFragment extends Fragment implements AbsListView.OnItemClickListener {
+
+    int sectionNumber;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -90,12 +94,19 @@ public class SubMenuFragment extends Fragment implements AbsListView.OnItemClick
             return null;
         }
 
+
         if (savedInstanceState == null) {
             View view;
             //view = container.findViewById(R.id.menu_item_list);
+            // TODO: learn NestedFragments http://developer.android.com/about/versions/android-4.2.html#NestedFragments
 
                 try {
                     view = inflater.inflate(R.layout.fragment_submenu, container, false);
+                    FragmentManager fragmentManager = getChildFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    MenuListFragment fragment =  MenuListFragment.newInstance(this.sectionNumber);
+                    fragmentTransaction.add(R.id.menu_placeholder_menu_detail, fragment);
+                    fragmentTransaction.commit();
 
                     // Set the adapter
                     mListView = (AbsListView) view.findViewById(android.R.id.list);
@@ -172,6 +183,7 @@ public class SubMenuFragment extends Fragment implements AbsListView.OnItemClick
         Bundle args = new Bundle();
         args.putInt(STATE_ACTIVATED_POSITION, sectionNumber);
         fragment.setArguments(args);
+        fragment.sectionNumber = sectionNumber;
         return fragment;
     }
 }

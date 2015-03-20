@@ -41,4 +41,7 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.4.0'
     compile 'com.loopj.android:android-async-http:1.4.6'
     compile 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
+    // http://guides.codepath.com/android/Sliding-Tabs-with-PagerSlidingTabStrip
+    compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
+
 }
