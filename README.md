@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/tonytamsf/Android-chefmenu.svg?branch=master)](https://travis-ci.org/tonytamsf/Android-chefmenu)
+
 # Android-chefmenu
 Chef Menu for food and wine
 
