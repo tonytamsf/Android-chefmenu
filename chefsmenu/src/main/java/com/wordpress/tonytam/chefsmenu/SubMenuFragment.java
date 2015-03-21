@@ -178,6 +178,21 @@ public class SubMenuFragment extends Fragment implements AbsListView.OnItemClick
         public void onFragmentInteraction(String id);
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        FragmentManager fragmentManager = getChildFragmentManager();
+        Fragment f = fragmentManager.findFragmentById(R.id.menu_placeholder_menu_detail);
+        if (f != null) {
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+            fragmentTransaction.remove(f);
+            // workaround: http://stackoverflow.com/questions/7575921/illegalstateexception-can-not-perform-this-action-after-onsaveinstancestate-h
+            fragmentTransaction.commitAllowingStateLoss();
+
+        }
+    }
+
     public static SubMenuFragment newInstance(int sectionNumber) {
         SubMenuFragment fragment = new SubMenuFragment();
         Bundle args = new Bundle();
