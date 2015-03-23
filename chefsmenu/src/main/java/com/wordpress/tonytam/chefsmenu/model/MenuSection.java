@@ -29,13 +29,32 @@ public class MenuSection {
     }
 
     public ArrayList<MenuItem> getAllItems(ArrayList<MenuSection> secs) {
+        ArrayList<MenuItem> all = new ArrayList<MenuItem>();
+
         for (int i = 0; i < secs.size(); i++) {
             if (secs.get(i).menuItems != null) {
-                return secs.get(i).menuItems;
+                all.addAll( secs.get(i).menuItems );
+            } else {
+                 all.addAll(getAllItems(secs.get(i).menuSections));
             }
-            return getAllItems(secs.get(i).menuSections);
         }
-        return null;
+        return all;
+    }
+
+    /**
+     *
+     * @return ArrayList<String> list of submenus
+     */
+    public ArrayList<String> getSubmenus() {
+        ArrayList<MenuSection> secs = this.menuSections;
+        ArrayList<String> subMenus = new ArrayList<String>();
+
+        for (int i = 0; i < secs.size(); i++) {
+            if (secs.get(i).menuSections != null) {
+                subMenus.add( secs.get(i).name );
+            }
+        }
+        return subMenus;
     }
 
     @Override

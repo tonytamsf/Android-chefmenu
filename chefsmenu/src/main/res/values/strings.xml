@@ -6,8 +6,8 @@
     <string name="title_activity_menu">MenuActivity</string>
 
 
-    <string name="title_section1">Food Menu</string>
-    <string name="title_section2">Drink Menu</string>
+    <string name="title_section1">Menu</string>
+    <string name="title_section2">Drink</string>
     <string name="title_section3">Dessert Menu</string>
 
     <string name="hello_world">Hello world!</string>

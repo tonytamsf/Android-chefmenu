@@ -82,16 +82,12 @@ public class SubMenuFragment extends Fragment implements AbsListView.OnItemClick
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
-
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
 
         if (container == null) {
             return null;
