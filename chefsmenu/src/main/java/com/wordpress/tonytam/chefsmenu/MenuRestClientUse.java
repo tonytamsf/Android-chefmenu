@@ -101,15 +101,25 @@ class MenuRestClientUse {
                 super.onFailure(statusCode, headers, responseString, throwable);
                 Toast.makeText(a.getActivity().getBaseContext(), "FAIL: "+responseString, Toast.LENGTH_LONG).show();
                 System.err.println("onFailure" + responseString);
+                Toast.makeText(that.a.getActivity().getBaseContext(), "onFailure" + responseString, Toast.LENGTH_LONG).show();
+            }
 
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
+                super.onFailure(statusCode, headers, throwable, errorResponse);
+                System.err.println("onFailure" + errorResponse);
+                Toast.makeText(that.a.getActivity().getBaseContext(), "onFailure" + errorResponse, Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 super.onFailure(statusCode, headers, throwable, errorResponse);
                 System.err.println("onFailure: " + errorResponse);
+                Toast.makeText(that.a.getActivity().getBaseContext(), "onFailure" + errorResponse + statusCode + headers, Toast.LENGTH_LONG).show();
+
                 try {
-                    if (errorResponse.get("http_status") == 429) {
+                    if (errorResponse != null &&
+                            errorResponse.get("http_status") == 429) {
                      that.fetchMenuItems(d);
                     }
                 } catch (JSONException e) {
