@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.wordpress.tonytam.chefsmenu.model.MenuContent;
+import com.wordpress.tonytam.chefsmenu.model.MenuSection;
 import com.wordpress.tonytam.chefsmenu.model.MenuItem;
 
 import java.util.ArrayList;
@@ -77,10 +78,13 @@ public class MenuListFragment extends ListFragment {
         super.onCreate(savedInstanceState);
 
         // Network, fetch data
-        MenuRestClientUse menu = new MenuRestClientUse((Fragment) this);
-        menu.fetchMenuItems(new MenuRestClientUse.dataReady() {
+        MenuRestClientUse fetcher = new MenuRestClientUse((Fragment) this);
+        fetcher.fetchMenuItems(new MenuRestClientUse.dataReady() {
             @Override
-            public void onDataReady(ArrayList<MenuItem> items) {
+            public void onDataReady(ArrayList<MenuSection> sections) {
+                MenuSection firstSection = sections.get(0);
+                ArrayList<MenuItem> items = firstSection.getAllItems();
+
                 setListAdapter(new MenuItemArrayAdaptor(
                         getActivity(),
                         R.layout.fragment_main,

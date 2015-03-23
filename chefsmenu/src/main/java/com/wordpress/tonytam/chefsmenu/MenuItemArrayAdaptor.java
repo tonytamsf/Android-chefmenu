@@ -57,15 +57,15 @@ public class MenuItemArrayAdaptor extends ArrayAdapter <MenuItem> {
         }
 
         viewHolder.name.setText(item.name);
-        viewHolder.description.setText(item.description);
+            viewHolder.description.setText(item.description);
 
-        getPicasso()
-                .with(getContext())
-                .load(Uri.parse(item.primary_image_url))
-                .noFade()
-                .placeholder(R.drawable.placeholder)
-                .priority(Picasso.Priority.HIGH)
-                .into(viewHolder.image);
+            getPicasso()
+                    .with(getContext())
+                    .load(Uri.parse(item.primary_image_url))
+                    .noFade()
+                    .placeholder(R.drawable.placeholder)
+                    .priority(Picasso.Priority.HIGH)
+                    .into(viewHolder.image);
 
         return convertView;
     }

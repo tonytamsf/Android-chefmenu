@@ -9,7 +9,12 @@ import java.util.ArrayList;
  */
 public class MenuSection {
     static public MenuSection topMenu;
+    public enum MENU_TYPE {
+        MENU_TYPE_ITEM,
+        MENU_TYPE_SECTION
+    }
 
+    public MENU_TYPE type;
     public ArrayList<MenuItem> menuItems;
     public ArrayList<MenuSection> menuSections;
 
@@ -17,6 +22,20 @@ public class MenuSection {
 
     public  MenuSection () {
         name = "no name";
+    }
+
+    public ArrayList<MenuItem> getAllItems() {
+        return getAllItems(menuSections);
+    }
+
+    public ArrayList<MenuItem> getAllItems(ArrayList<MenuSection> secs) {
+        for (int i = 0; i < secs.size(); i++) {
+            if (secs.get(i).menuItems != null) {
+                return secs.get(i).menuItems;
+            }
+            return getAllItems(secs.get(i).menuSections);
+        }
+        return null;
     }
 
     @Override

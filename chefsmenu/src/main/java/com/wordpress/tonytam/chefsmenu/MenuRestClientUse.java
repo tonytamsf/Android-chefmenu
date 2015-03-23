@@ -27,7 +27,7 @@ class MenuRestClientUse {
     }
 
     public interface dataReady {
-        public void onDataReady(ArrayList<MenuItem> items);
+        public void onDataReady(ArrayList<MenuSection> items);
     }
         
     public void fetchMenuItems (final dataReady d) {
@@ -58,6 +58,8 @@ class MenuRestClientUse {
                         JSONObject sectionJson;
                         for (int i = 0; i < menusJson.length(); i++) {
                             MenuSection menu = new MenuSection();
+                            menus.menuSections.add(menu);
+
                             menu.menuSections = new ArrayList<MenuSection>();
                             menus.menuSections.add(menu);
 
@@ -76,18 +78,19 @@ class MenuRestClientUse {
 
                                 for (int ss = 0; ss < subsectionsJson.length(); ss++)  {
                                     MenuSection subsection = new MenuSection();
+                                    section.menuSections.add(subsection);
+
                                     subsection.menuItems = new ArrayList<MenuItem>();
 
                                     JSONArray contents = subsectionsJson.getJSONObject(ss).getJSONArray("contents");
                                     //subsection.name = subsectionsJson.getJSONObject(ss).getString("section_name");
                                     System.err.println(contents.toString());
                                     subsection.menuItems.addAll(MenuItem.fromJson(contents));
-                                    MenuContent.ITEMS = subsection.menuItems;
                                 }
                             }
                         }
 
-                        d.onDataReady(MenuContent.ITEMS);
+                        d.onDataReady(menus.menuSections);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
