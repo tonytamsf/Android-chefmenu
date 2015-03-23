@@ -11,8 +11,9 @@ import org.apache.http.protocol.HTTP;
 
 public class MenuRestClient {
     private static final String BASE_URL = "https://api.locu.com/v2/venue/search";
-
-
+    private static final String FALLBACK_URL = "https://dl.dropboxusercontent.com/u/1368798/Personal/chefsmenu/data";
+    static String locu_id = "5ea0bbf14816ecd9a155";
+    static String menu_uri = "menu.json";
 
     private static AsyncHttpClient client = new AsyncHttpClient();
 
@@ -38,13 +39,25 @@ public class MenuRestClient {
         } catch(Exception e) {
 //Exception
         }
-        client.post(null,getAbsoluteUrl(url),entity,"application/json",responseHandler);
 
+        if (false) {
+            client.post(null,
+                    getAbsoluteUrl(url),
+                    entity,
+                    "application/json",
+                    responseHandler);
+        } else {
+            client.get(null,
+                    getAbsoluteUrl(url),
+                    responseHandler);
+        }
 
        // client.post(getAbsoluteUrl(url), params, responseHandler);
     }
 
     private static String getAbsoluteUrl(String relativeUrl) {
-        return BASE_URL + relativeUrl;
+        String result = FALLBACK_URL + "/" + locu_id + "/" + menu_uri;
+        return result;
+        // TODO: locu blocks API requests, use dropbox instead  return BASE_URL + relativeUrl;
     }
 }

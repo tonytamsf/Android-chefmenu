@@ -30,6 +30,7 @@ class MenuRestClientUse {
     }
         
     public void fetchMenuItems (final dataReady d) {
+        final MenuRestClientUse that = this;
 
         if (MenuSection.topMenu != null) {
             // already got data
@@ -101,6 +102,19 @@ class MenuRestClientUse {
                 Toast.makeText(a.getActivity().getBaseContext(), "FAIL: "+responseString, Toast.LENGTH_LONG).show();
                 System.err.println("onFailure" + responseString);
 
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                super.onFailure(statusCode, headers, throwable, errorResponse);
+                System.err.println("onFailure: " + errorResponse);
+                try {
+                    if (errorResponse.get("http_status") == 429) {
+                     that.fetchMenuItems(d);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
