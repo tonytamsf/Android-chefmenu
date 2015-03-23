@@ -4,7 +4,6 @@ import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
-import com.wordpress.tonytam.chefsmenu.model.MenuContent;
 import com.wordpress.tonytam.chefsmenu.model.MenuItem;
 import com.wordpress.tonytam.chefsmenu.model.MenuSection;
 
@@ -32,9 +31,9 @@ class MenuRestClientUse {
         
     public void fetchMenuItems (final dataReady d) {
 
-        if (MenuContent.ITEMS != null && MenuContent.ITEMS.size() > 0) {
+        if (MenuSection.topMenu != null) {
             // already got data
-            d.onDataReady(MenuContent.ITEMS);
+            d.onDataReady(MenuSection.topMenu.menuSections);
 
             return;
         }

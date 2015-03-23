@@ -83,6 +83,7 @@ public class MenuListFragment extends ListFragment {
             @Override
             public void onDataReady(ArrayList<MenuSection> sections) {
                 MenuSection firstSection = sections.get(0);
+                // TODO filter by submenu
                 ArrayList<MenuItem> items = firstSection.getAllItems();
 
                 setListAdapter(new MenuItemArrayAdaptor(

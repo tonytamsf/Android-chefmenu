@@ -16,6 +16,10 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.wordpress.tonytam.chefsmenu.dummy.DummyContent;
+import com.wordpress.tonytam.chefsmenu.model.MenuItem;
+import com.wordpress.tonytam.chefsmenu.model.MenuSection;
+
+import java.util.ArrayList;
 
 /**
  * A fragment representing a list of Items.
@@ -79,9 +83,8 @@ public class SubMenuFragment extends Fragment implements AbsListView.OnItemClick
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        // TODO: Change Adapter to display your content
-        mAdapter = new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
-                android.R.layout.simple_list_item_1, android.R.id.text1, DummyContent.ITEMS);
+
+
     }
 
 
@@ -96,7 +99,7 @@ public class SubMenuFragment extends Fragment implements AbsListView.OnItemClick
 
 
         if (savedInstanceState == null) {
-            View view;
+            final View view;
             //view = container.findViewById(R.id.menu_item_list);
             // TODO: learn NestedFragments http://developer.android.com/about/versions/android-4.2.html#NestedFragments
 
@@ -108,9 +111,27 @@ public class SubMenuFragment extends Fragment implements AbsListView.OnItemClick
                     fragmentTransaction.add(R.id.menu_placeholder_menu_detail, fragment);
                     fragmentTransaction.commit();
 
-                    // Set the adapter
                     mListView = (AbsListView) view.findViewById(android.R.id.list);
-                    ((AdapterView<ListAdapter>) mListView).setAdapter(mAdapter);
+
+                    // Network, fetch data
+                    MenuRestClientUse fetcher = new MenuRestClientUse((Fragment) this);
+                    fetcher.fetchMenuItems(new MenuRestClientUse.dataReady() {
+                        @Override
+                        public void onDataReady(ArrayList<MenuSection> sections) {
+                            MenuSection firstSection = sections.get(0);
+                            ArrayList<MenuItem> items = firstSection.getAllItems();
+
+                            mAdapter = new ArrayAdapter<String>(
+                                    getActivity(),
+                                    android.R.layout.simple_list_item_1,
+                                    android.R.id.text1,
+                                    firstSection.getSubmenus());
+                            // Set the adapter
+                            ((AdapterView<ListAdapter>) mListView).setAdapter(mAdapter);
+
+
+                        }
+                    });
 
                     // Set OnItemClickListener so we can be notified on item clicks
                     mListView.setOnItemClickListener(this);
