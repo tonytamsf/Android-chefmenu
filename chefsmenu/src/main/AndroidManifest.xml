@@ -25,7 +25,7 @@
         <activity
             android:name=".ChefMenuActivity"
             android:label="@string/title_activity_chef_menu"
-            android:screenOrientation="landscape"
+            android:screenOrientation="portrait"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -18,8 +18,8 @@
         android:background="#00000000">
 
         <ImageView
-            android:layout_width="250dp"
-            android:layout_height="250dp"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
             android:id="@+id/menu_image"
             android:src="@drawable/nav_dessert_menu"
             android:clickable="true"
