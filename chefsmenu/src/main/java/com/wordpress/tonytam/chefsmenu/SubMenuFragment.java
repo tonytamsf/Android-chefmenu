@@ -110,7 +110,7 @@ public class SubMenuFragment extends Fragment implements AbsListView.OnItemClick
                     mListView = (AbsListView) view.findViewById(android.R.id.list);
 
                     // Network, fetch data
-                    MenuRestClientUse fetcher = new MenuRestClientUse((Fragment) this);
+                    MenuRestClientUse fetcher = new MenuRestClientUse(this.getActivity());
                     fetcher.fetchMenuItems(new MenuRestClientUse.dataReady() {
                         @Override
                         public void onDataReady(ArrayList<MenuSection> sections) {

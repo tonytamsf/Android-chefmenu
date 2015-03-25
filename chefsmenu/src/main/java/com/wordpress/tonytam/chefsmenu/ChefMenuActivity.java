@@ -1,5 +1,6 @@
 package com.wordpress.tonytam.chefsmenu;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -21,7 +22,7 @@ import java.util.Locale;
 public class ChefMenuActivity extends ActionBarActivity
     implements MenuListFragment.Callbacks,
         SubMenuFragment.OnFragmentInteractionListener {
-    PagerSlidingTabStrip tabsStrip;
+    PagerSlidingTabStrip tabsStrip = null;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -43,17 +44,17 @@ public class ChefMenuActivity extends ActionBarActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chef_menu);
 
+        // Give the PagerSlidingTabStrip the ViewPager
+        tabsStrip = (PagerSlidingTabStrip) findViewById(R.id.tabs);
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), this);
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        // Give the PagerSlidingTabStrip the ViewPager
-         tabsStrip = (PagerSlidingTabStrip) findViewById(R.id.tabs);
         // Attach the view pager to the tab strip
         tabsStrip.setViewPager(mViewPager);
         //getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -92,19 +93,26 @@ public class ChefMenuActivity extends ActionBarActivity
         ArrayList<String> topMenuNames = new ArrayList<String>(1);
         ArrayList<SubMenuFragment> subMenuFragments;
 
-        public SectionsPagerAdapter(FragmentManager fm) {
+        public SectionsPagerAdapter(FragmentManager fm, Activity a) {
             super(fm);
             subMenuFragments = new ArrayList<SubMenuFragment>(2);
             topMenuNames.add(0, "loading");
             // Network, fetch data
-            MenuRestClientUse fetcher = new MenuRestClientUse();
+            MenuRestClientUse fetcher = new MenuRestClientUse(a);
             fetcher.fetchMenuItems(new MenuRestClientUse.dataReady() {
                 @Override
                 public void onDataReady(ArrayList<MenuSection> sections) {
                     topMenuNames.remove(0);
                     topMenuNames.addAll(0, sections.get(0).getSubmenus());
                     notifyDataSetChanged();
-                    tabsStrip.notifyDataSetChanged();
+                    // TODO timing issue here HACK
+                    // at com.astuetz.PagerSlidingTabStrip.notifyDataSetChanged(PagerSlidingTabStrip.java:193)
+                    // https://github.com/astuetz/PagerSlidingTabStrip/blob/3f4738eca833faeca563d93cd77c8df763a45fb6/library/src/com/astuetz/PagerSlidingTabStrip.java
+                    try {
+                        tabsStrip.notifyDataSetChanged();
+                    } catch (NullPointerException e) {
+                        e.printStackTrace();
+                    }
                 }
             });
         }

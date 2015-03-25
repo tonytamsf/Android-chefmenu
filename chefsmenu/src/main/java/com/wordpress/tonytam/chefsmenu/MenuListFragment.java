@@ -2,15 +2,14 @@ package com.wordpress.tonytam.chefsmenu;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.ListView;
 
 import com.wordpress.tonytam.chefsmenu.model.MenuContent;
-import com.wordpress.tonytam.chefsmenu.model.MenuSection;
 import com.wordpress.tonytam.chefsmenu.model.MenuItem;
+import com.wordpress.tonytam.chefsmenu.model.MenuSection;
 
 import java.util.ArrayList;
 
@@ -78,7 +77,7 @@ public class MenuListFragment extends ListFragment {
         super.onCreate(savedInstanceState);
 
         // Network, fetch data
-        MenuRestClientUse fetcher = new MenuRestClientUse((Fragment) this);
+        MenuRestClientUse fetcher = new MenuRestClientUse( this.getActivity());
         fetcher.fetchMenuItems(new MenuRestClientUse.dataReady() {
             @Override
             public void onDataReady(ArrayList<MenuSection> sections) {
