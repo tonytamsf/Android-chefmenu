@@ -10,3 +10,6 @@ Chef Menu for food and wine
 
 # Screenshots
 ![screen shot 2015-03-01 at 10 58 45 pm](https://cloud.githubusercontent.com/assets/149837/6436562/8bd08070-c066-11e4-908e-7c00da03827e.png)
+
+# Credits
+- https://github.com/astuetz/PagerSlidingTabStrip

@@ -1,7 +1,6 @@
 package com.wordpress.tonytam.chefsmenu;
 
 import android.support.v4.app.Fragment;
-import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.wordpress.tonytam.chefsmenu.model.MenuItem;
@@ -21,8 +20,11 @@ import java.util.ArrayList;
 class MenuRestClientUse {
     Fragment a;
 
-    MenuRestClientUse(Fragment a) {
+    MenuRestClientUse(Fragment a ) {
         this.a = a;
+    }
+    MenuRestClientUse( ) {
+        this.a = null;
     }
 
     public interface dataReady {
@@ -99,23 +101,23 @@ class MenuRestClientUse {
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                 super.onFailure(statusCode, headers, responseString, throwable);
-                Toast.makeText(a.getActivity().getBaseContext(), "FAIL: "+responseString, Toast.LENGTH_LONG).show();
+                //Toast.makeText(a.getActivity().getBaseContext(), "FAIL: "+responseString, Toast.LENGTH_LONG).show();
                 System.err.println("onFailure" + responseString);
-                Toast.makeText(that.a.getActivity().getBaseContext(), "onFailure" + responseString, Toast.LENGTH_LONG).show();
+                //Toast.makeText(that.a.getActivity().getBaseContext(), "onFailure" + responseString, Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
                 super.onFailure(statusCode, headers, throwable, errorResponse);
                 System.err.println("onFailure" + errorResponse);
-                Toast.makeText(that.a.getActivity().getBaseContext(), "onFailure" + errorResponse, Toast.LENGTH_LONG).show();
+                //Toast.makeText(that.a.getActivity().getBaseContext(), "onFailure" + errorResponse, Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 super.onFailure(statusCode, headers, throwable, errorResponse);
                 System.err.println("onFailure: " + errorResponse);
-                Toast.makeText(that.a.getActivity().getBaseContext(), "onFailure" + errorResponse + statusCode + headers, Toast.LENGTH_LONG).show();
+                //Toast.makeText(that.a.getActivity().getBaseContext(), "onFailure" + errorResponse + statusCode + headers, Toast.LENGTH_LONG).show();
 
                 try {
                     if (errorResponse != null &&

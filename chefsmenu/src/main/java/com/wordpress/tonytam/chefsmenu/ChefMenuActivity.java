@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.wordpress.tonytam.chefsmenu.model.MenuSection;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -20,6 +21,7 @@ import java.util.Locale;
 public class ChefMenuActivity extends ActionBarActivity
     implements MenuListFragment.Callbacks,
         SubMenuFragment.OnFragmentInteractionListener {
+    PagerSlidingTabStrip tabsStrip;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -51,7 +53,7 @@ public class ChefMenuActivity extends ActionBarActivity
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         // Give the PagerSlidingTabStrip the ViewPager
-        PagerSlidingTabStrip tabsStrip = (PagerSlidingTabStrip) findViewById(R.id.tabs);
+         tabsStrip = (PagerSlidingTabStrip) findViewById(R.id.tabs);
         // Attach the view pager to the tab strip
         tabsStrip.setViewPager(mViewPager);
         //getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -87,11 +89,24 @@ public class ChefMenuActivity extends ActionBarActivity
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
+        ArrayList<String> topMenuNames = new ArrayList<String>(1);
         ArrayList<SubMenuFragment> subMenuFragments;
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
-            subMenuFragments = new ArrayList<SubMenuFragment>(3);
+            subMenuFragments = new ArrayList<SubMenuFragment>(2);
+            topMenuNames.add(0, "loading");
+            // Network, fetch data
+            MenuRestClientUse fetcher = new MenuRestClientUse();
+            fetcher.fetchMenuItems(new MenuRestClientUse.dataReady() {
+                @Override
+                public void onDataReady(ArrayList<MenuSection> sections) {
+                    topMenuNames.remove(0);
+                    topMenuNames.addAll(0, sections.get(0).getSubmenus());
+                    notifyDataSetChanged();
+                    tabsStrip.notifyDataSetChanged();
+                }
+            });
         }
 
         @Override
@@ -123,22 +138,17 @@ public class ChefMenuActivity extends ActionBarActivity
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+            return topMenuNames.size();
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
             Locale l = Locale.getDefault();
-            switch (position) {
-                case 0:
-                    return getString(R.string.title_section1).toUpperCase(l);
-                case 1:
-                    return getString(R.string.title_section2).toUpperCase(l);
-                case 2:
-                    return getString(R.string.title_section3).toUpperCase(l);
+            if (position < topMenuNames.size()) {
+                return topMenuNames.get(position);
+            } else {
+                return "";
             }
-            return null;
         }
     }
 

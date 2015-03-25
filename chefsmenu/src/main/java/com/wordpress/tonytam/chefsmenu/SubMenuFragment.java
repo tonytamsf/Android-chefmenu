@@ -122,6 +122,13 @@ public class SubMenuFragment extends Fragment implements AbsListView.OnItemClick
                                     android.R.layout.simple_list_item_1,
                                     android.R.id.text1,
                                     firstSection.getSubmenus());
+                            /*
+                            mAdapter = new SubMenuArrayAdaptor(
+                                    getActivity(),
+                                    R.layout.fragment_submenu_section,
+                                    R.id.submenu_text,
+                                    sections);
+                                    */
                             // Set the adapter
                             ((AdapterView<ListAdapter>) mListView).setAdapter(mAdapter);
 
