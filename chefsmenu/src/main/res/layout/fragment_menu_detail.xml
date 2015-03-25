@@ -18,8 +18,8 @@
         android:background="#00000000">
 
         <ImageView
-            android:layout_width="200dp"
-            android:layout_height="150dp"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
             android:id="@+id/menu_image"
             android:src="@drawable/nav_dessert_menu"
             android:clickable="true"
@@ -47,7 +47,7 @@
                 android:background="#00000000" />
 
             <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Small Text"
