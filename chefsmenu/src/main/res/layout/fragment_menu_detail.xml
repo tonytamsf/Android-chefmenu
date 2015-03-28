@@ -18,8 +18,9 @@
         android:background="#00000000">
 
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="100dp"
+            android:layout_width="0dp"
+            android:layout_weight=".50"
+            android:layout_height="200dp"
             android:id="@+id/menu_image"
             android:src="@drawable/nav_dessert_menu"
             android:clickable="true"
@@ -28,23 +29,21 @@
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="fill_parent"
+            android:layout_width="0dp"
+            android:layout_weight=".67"
             android:layout_height="fill_parent"
             android:background="#00000000">
 
             <TextView xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools" android:id="@+id/menu_detail_name"
-                style="@style/TextAppearance.AppCompat.Headline" android:layout_width="wrap_content"
+                style="@style/TextAppearance.AppCompat.Large" android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:context="com.wordpress.tonytam.chefsmenu.MenuDetailFragment"
                 android:text="menu item "
-                android:alpha="10"
-                android:textColor="@color/hint_foreground_material_light"
                 android:layout_gravity="left|right"
                 android:clickable="true"
-                android:layout_alignEnd="@id/menu_detail_name"
-                android:layout_marginLeft="10dp"
-                android:background="#00000000" />
+                android:layout_marginStart="10dp"
+                 />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -56,7 +55,7 @@
                 android:clickable="true"
                 android:layout_alignEnd="@id/menu_detail_name"
                 android:layout_marginLeft="10dp"
-                android:background="#00000000" />
+                />
         </LinearLayout>
     </LinearLayout>
 
