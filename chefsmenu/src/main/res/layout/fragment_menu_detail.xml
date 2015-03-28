@@ -17,15 +17,7 @@
         android:layout_gravity="bottom|left"
         android:background="#00000000">
 
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_weight=".50"
-            android:layout_height="200dp"
-            android:id="@+id/menu_image"
-            android:src="@drawable/nav_dessert_menu"
-            android:clickable="true"
-            android:layout_gravity="left"
-            android:scaleType="centerCrop" />
+
 
         <LinearLayout
             android:orientation="vertical"
@@ -57,6 +49,15 @@
                 android:layout_marginLeft="10dp"
                 />
         </LinearLayout>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight=".50"
+            android:layout_height="200dp"
+            android:id="@+id/menu_image"
+            android:src="@drawable/nav_dessert_menu"
+            android:clickable="true"
+            android:layout_gravity="left"
+            android:scaleType="centerCrop" />
     </LinearLayout>
 
 </FrameLayout>

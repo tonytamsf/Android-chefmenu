@@ -65,6 +65,8 @@ public class MenuItemArrayAdaptor extends ArrayAdapter <MenuItem> {
                     .noFade()
                     .placeholder(R.drawable.placeholder)
                     .priority(Picasso.Priority.HIGH)
+                    .fit()
+                    .centerInside()
                     .into(viewHolder.image);
 
         return convertView;
