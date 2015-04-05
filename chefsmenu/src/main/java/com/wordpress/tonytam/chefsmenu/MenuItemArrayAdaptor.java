@@ -6,8 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.LruCache;
 import com.squareup.picasso.Picasso;
@@ -25,6 +27,7 @@ public class MenuItemArrayAdaptor extends ArrayAdapter <MenuItem> {
         TextView name;
         ImageView image;
         TextView description;
+        ImageButton buttonLike;
 
     }
     
@@ -50,7 +53,15 @@ public class MenuItemArrayAdaptor extends ArrayAdapter <MenuItem> {
             viewHolder.name = (TextView) convertView.findViewById(R.id.menu_detail_name);
             viewHolder.image = (ImageView) convertView.findViewById(R.id.menu_image);
             viewHolder.description = (TextView) convertView.findViewById(R.id.menu_detail_description);
-            
+            viewHolder.buttonLike = (ImageButton) convertView.findViewById(R.id.image_button_like);
+
+            viewHolder.buttonLike.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onLikeButtonClicked(v);
+                }
+            });
+
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -71,7 +82,11 @@ public class MenuItemArrayAdaptor extends ArrayAdapter <MenuItem> {
 
         return convertView;
     }
-    
+
+    public void onLikeButtonClicked(View v) {
+        Toast.makeText(getContext(), "Like it!", Toast.LENGTH_LONG).show();
+    }
+
     public Picasso getPicasso() {
         if (_builder == null) {
             _builder = new Picasso.Builder(getContext()).memoryCache(new LruCache(200*1024*1024)).build();

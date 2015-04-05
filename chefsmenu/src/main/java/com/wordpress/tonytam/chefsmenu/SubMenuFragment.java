@@ -32,13 +32,15 @@ import java.util.ArrayList;
  */
 public class SubMenuFragment extends Fragment implements AbsListView.OnItemClickListener {
 
-    int sectionNumber;
+    String menuName;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static final String STATE_ACTIVATED_POSITION = "activated_position";
+    private static final String STATE_ACTIVATED_MENU = "activated_menu";
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -103,7 +105,7 @@ public class SubMenuFragment extends Fragment implements AbsListView.OnItemClick
                     view = inflater.inflate(R.layout.fragment_submenu, container, false);
                     FragmentManager fragmentManager = getChildFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    MenuListFragment fragment =  MenuListFragment.newInstance(this.sectionNumber);
+                    MenuListFragment fragment =  MenuListFragment.newInstance(this.menuName);
                     fragmentTransaction.add(R.id.menu_placeholder_menu_detail, fragment);
                     fragmentTransaction.commit();
 
@@ -113,9 +115,10 @@ public class SubMenuFragment extends Fragment implements AbsListView.OnItemClick
                     MenuRestClientUse fetcher = new MenuRestClientUse(this.getActivity());
                     fetcher.fetchMenuItems(new MenuRestClientUse.dataReady() {
                         @Override
-                        public void onDataReady(ArrayList<MenuSection> sections) {
-                            MenuSection firstSection = sections.get(0);
-                            ArrayList<MenuItem> items = firstSection.getAllItems();
+                        public void onDataReady(MenuSection menu) {
+                            MenuSection firstSection = menu;
+                            // filter based on menuName
+                            ArrayList<MenuItem> items = firstSection.menuSections.get(0).getAllItems();
 
                             mAdapter = new ArrayAdapter<String>(
                                     getActivity(),
@@ -217,12 +220,12 @@ public class SubMenuFragment extends Fragment implements AbsListView.OnItemClick
         }
     }
 
-    public static SubMenuFragment newInstance(int sectionNumber) {
+    public static SubMenuFragment newInstance(String menuName) {
         SubMenuFragment fragment = new SubMenuFragment();
         Bundle args = new Bundle();
-        args.putInt(STATE_ACTIVATED_POSITION, sectionNumber);
+        args.putString(STATE_ACTIVATED_MENU, menuName);
         fragment.setArguments(args);
-        fragment.sectionNumber = sectionNumber;
+        fragment.menuName = menuName;
         return fragment;
     }
 }

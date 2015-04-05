@@ -19,7 +19,7 @@
 
 
 
-        <LinearLayout
+        <RelativeLayout
             android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_weight=".67"
@@ -34,8 +34,9 @@
                 android:text="menu item "
                 android:layout_gravity="left|right"
                 android:clickable="true"
-                android:layout_marginStart="10dp"
-                 />
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="3dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -45,16 +46,31 @@
                 android:id="@+id/menu_detail_description"
                 android:layout_gravity="bottom|left"
                 android:clickable="true"
-                android:layout_alignEnd="@id/menu_detail_name"
-                android:layout_marginLeft="10dp"
-                />
-        </LinearLayout>
+                android:layout_marginLeft="3dp"
+                android:layout_below="@+id/menu_detail_name"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_above="@+id/image_button_like" />
+            <ImageButton
+                android:id="@+id/image_button_like"
+                android:layout_width="46dp"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="7dp"
+                android:layout_marginBottom="7dp"
+                android:layout_above="@+id/menu_detail_name"
+                android:background="#00000000"
+                android:src="@drawable/heart_46"
+                android:clickable="true"
+                android:longClickable="true" />
+        </RelativeLayout>
         <ImageView
             android:layout_width="0dp"
             android:layout_weight=".50"
             android:layout_height="200dp"
             android:id="@+id/menu_image"
-            android:src="@drawable/nav_dessert_menu"
+            android:src="@drawable/like_button"
             android:clickable="true"
             android:layout_gravity="left"
             android:scaleType="centerCrop" />

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
@@ -30,6 +31,9 @@ public class MenuListFragment extends ListFragment {
      * activated item position. Only used on tablets.
      */
     private static final String STATE_ACTIVATED_POSITION = "activated_position";
+    private static final String STATE_ACTIVATED_MENU = "activated_menu";
+
+    public static String menuName;
 
     /**
      * The fragment's current callback object, which is notified of list item
@@ -80,10 +84,11 @@ public class MenuListFragment extends ListFragment {
         MenuRestClientUse fetcher = new MenuRestClientUse( this.getActivity());
         fetcher.fetchMenuItems(new MenuRestClientUse.dataReady() {
             @Override
-            public void onDataReady(ArrayList<MenuSection> sections) {
-                MenuSection firstSection = sections.get(0);
+            public void onDataReady(MenuSection menu) {
+                MenuSection firstSection = menu;
                 // TODO filter by submenu
-                ArrayList<MenuItem> items = firstSection.getAllItems();
+                Log.d("menu: ", menuName);
+                ArrayList<MenuItem> items = firstSection.menuSections.get(0).getItemsForSubMenu(menuName);
 
                 setListAdapter(new MenuItemArrayAdaptor(
                         getActivity(),
@@ -174,10 +179,11 @@ public class MenuListFragment extends ListFragment {
         }
     }
 
-    public static MenuListFragment newInstance(int sectionNumber) {
+    public static MenuListFragment newInstance(String menuName) {
         MenuListFragment fragment = new MenuListFragment();
         Bundle args = new Bundle();
-        args.putInt(STATE_ACTIVATED_POSITION, sectionNumber);
+        args.putString(STATE_ACTIVATED_MENU, menuName);
+        fragment.menuName = menuName;
         fragment.setArguments(args);
         return fragment;
     }

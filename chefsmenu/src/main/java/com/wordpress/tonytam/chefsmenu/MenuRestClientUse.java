@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 class MenuRestClientUse {
     public interface dataReady {
-        public void onDataReady(ArrayList<MenuSection> items);
+        public void onDataReady(MenuSection menu);
     }
 
     Activity a;
@@ -44,7 +44,7 @@ class MenuRestClientUse {
 
         if (MenuSection.topMenu != null) {
             // already got data
-            d.onDataReady(MenuSection.topMenu.menuSections);
+            d.onDataReady(MenuSection.topMenu);
 
             return;
         }
@@ -69,7 +69,7 @@ class MenuRestClientUse {
                 System.err.println("onSuccess " + response.toString());
                 MenuSection menus = parseMenuData(response);
                 if (menus != null) {
-                    d.onDataReady(menus.menuSections);
+                    d.onDataReady(menus);
                 }
             }
 
@@ -227,7 +227,7 @@ class MenuRestClientUse {
         }
         MenuSection menus = parseMenuData(obj);
         if (menus != null) {
-            d.onDataReady(menus.menuSections);
+            d.onDataReady(menus);
         }
     }
 }

@@ -95,15 +95,19 @@ public class ChefMenuActivity extends ActionBarActivity
 
         public SectionsPagerAdapter(FragmentManager fm, Activity a) {
             super(fm);
-            subMenuFragments = new ArrayList<SubMenuFragment>(2);
+            subMenuFragments = new ArrayList<SubMenuFragment>(1);
             topMenuNames.add(0, "loading");
             // Network, fetch data
             MenuRestClientUse fetcher = new MenuRestClientUse(a);
             fetcher.fetchMenuItems(new MenuRestClientUse.dataReady() {
                 @Override
-                public void onDataReady(ArrayList<MenuSection> sections) {
-                    topMenuNames.remove(0);
-                    topMenuNames.addAll(0, sections.get(0).getSubmenus());
+                public void onDataReady(MenuSection sections) {
+                    topMenuNames.clear();
+                    topMenuNames.addAll(0, sections.menuSections.get(0).getSubmenus());
+
+                    // TODO: bug here with the first tab not loading
+                    subMenuFragments.get(0).menuName = topMenuNames.get(0);
+
                     notifyDataSetChanged();
                     // TODO timing issue here HACK
                     // at com.astuetz.PagerSlidingTabStrip.notifyDataSetChanged(PagerSlidingTabStrip.java:193)
@@ -123,7 +127,7 @@ public class ChefMenuActivity extends ActionBarActivity
                 // getItem is called to instantiate the fragment for the given page.
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                SubMenuFragment fragment = SubMenuFragment.newInstance(position + 1);
+                SubMenuFragment fragment = SubMenuFragment.newInstance(topMenuNames.get(position));
                 fragmentTransaction.replace(R.layout.fragment_submenu, fragment);
                 fragmentTransaction.commit();
                 return fragment;
@@ -133,12 +137,12 @@ public class ChefMenuActivity extends ActionBarActivity
                         return subMenuFragments.get(position);
                     } else {
                         // save this, do not create new new fragments
-                        subMenuFragments.add(position, SubMenuFragment.newInstance(position + 1));
+                        subMenuFragments.add(position, SubMenuFragment.newInstance(topMenuNames.get(position)));
                         return subMenuFragments.get(position);
                     }
                 } catch (IndexOutOfBoundsException e) {
                     // save this, do not create new new fragments
-                    subMenuFragments.add(position, SubMenuFragment.newInstance(position + 1));
+                    subMenuFragments.add(position, SubMenuFragment.newInstance(topMenuNames.get(position)));
                     return subMenuFragments.get(position);
                 }
             }

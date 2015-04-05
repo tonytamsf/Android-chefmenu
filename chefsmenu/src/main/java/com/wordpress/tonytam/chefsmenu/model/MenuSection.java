@@ -34,13 +34,31 @@ public class MenuSection {
         for (int i = 0; i < secs.size(); i++) {
             if (secs.get(i).menuItems != null) {
                 all.addAll( secs.get(i).menuItems );
-            } else {
+            } else if (secs.get(i).menuSections != null) {
                  all.addAll(getAllItems(secs.get(i).menuSections));
             }
         }
         return all;
     }
 
+    public ArrayList<MenuItem> getItemsForSubMenu(String subMenu) {
+        return getItemsForSubMenu(menuSections, subMenu);
+    }
+
+    public ArrayList<MenuItem> getItemsForSubMenu(ArrayList<MenuSection> secs, String subMenu) {
+        ArrayList<MenuItem> all = new ArrayList<MenuItem>();
+
+
+        for (int i = 0; i < secs.size(); i++) {
+
+            if (secs.get(i).name.equals(subMenu)) {
+                all.addAll( getAllItems(secs.get(i).menuSections) );
+            } else if (secs.get(i).menuSections != null) {
+                getItemsForSubMenu(secs.get(i).menuSections, subMenu);
+            }
+        }
+        return all;
+    }
     /**
      *
      * @return ArrayList<String> list of submenus
