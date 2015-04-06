@@ -84,6 +84,9 @@ public class MenuItemArrayAdaptor extends ArrayAdapter <MenuItem> {
     }
 
     public void onLikeButtonClicked(View v) {
+        ImageButton likeButton = (ImageButton) v;
+        ((ImageButton) v).setImageResource(R.drawable.red_heart_46);
+
         Toast.makeText(getContext(), "Like it!", Toast.LENGTH_LONG).show();
     }
 

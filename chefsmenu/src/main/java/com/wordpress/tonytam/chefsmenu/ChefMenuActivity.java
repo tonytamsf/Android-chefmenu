@@ -106,7 +106,7 @@ public class ChefMenuActivity extends ActionBarActivity
                     topMenuNames.addAll(0, sections.menuSections.get(0).getSubmenus());
 
                     // TODO: bug here with the first tab not loading
-                    subMenuFragments.get(0).menuName = topMenuNames.get(0);
+                    //subMenuFragments.get(0).menuName = topMenuNames.get(0);
 
                     notifyDataSetChanged();
                     // TODO timing issue here HACK
