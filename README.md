@@ -9,7 +9,7 @@ Chef Menu for food and wine
 - Optional : data from the Locu api
 
 # Screenshots
-![screenshot_2015-03-25-12-15-57](https://cloud.githubusercontent.com/assets/149837/6833938/cb63c244-d2ed-11e4-8f26-cc9c3dee4c7c.png)
+![screen shot 2015-04-06 at 9 50 26 pm](https://cloud.githubusercontent.com/assets/149837/7017107/fb824ca8-dca6-11e4-80ee-59d3ebc3d5cc.png)
 
 # Credits
 - https://github.com/astuetz/PagerSlidingTabStrip
